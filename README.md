@@ -2,4 +2,4 @@
 
 ## sli.do clone for fullstack project
 
-TODO
+Check (wiki)[https://github.com/dbalci/questo/wiki] for design documents
