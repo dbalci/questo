@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+     font-family: 'Roboto', sans-serif;
+ }
+
+.landing-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    max-width: 1200px;
+    line-height: 2.5;
+    font-size: 20px;
+}
+
+.header-home-link {
+    color: #39ac37;
+    display: flex;
+    text-decoration: none;
+    padding: 0 20px;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.header-account {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.header-signup {
+    text-decoration: none;
+    display: flex;
+    background-color: #39ac37;
+    color: white;
+    border-radius: 10px;
+    width: 120px;
+    justify-content: center;    
+}
+
+.header-login {
+    display: flex;
+    text-decoration: none;
+    margin: 0 20px;
+    color: black;
+}
