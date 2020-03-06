@@ -15,7 +15,7 @@
  */
 
  body {
-     font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
  }
 
 .landing-nav {
@@ -54,9 +54,43 @@
     justify-content: center;    
 }
 
+.header-signup:hover {
+    background-color: black;
+}
+
 .header-login {
     display: flex;
     text-decoration: none;
     margin: 0 20px;
     color: black;
+}
+
+.signup-form-container {
+    display: flex;
+    align-items: center;
+    border-color: black;
+}
+
+.first-name {
+    display: flex;
+}
+
+.last-name {
+    display: flex;
+
+}
+
+.email {
+    display: flex;
+
+}
+
+.password {
+    display: flex;
+
+}
+
+.signup-submit {
+    display: flex;
+
 }

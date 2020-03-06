@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -39,39 +40,41 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="signup-form-container">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     Create your account
-                <br/>
+                    <br/>
+                    or <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
+
                     {this.renderErrors()}
-                <label>First name
+                <label className='first-name'>First name
                     <input 
                         type="text"
                         value={this.state.name}
                         onChange={this.update('name')}
                         className='signup-input' />
                 </label>
-                <label>Last name
+                <label className='last-name'>Last name
                     <input 
                         type="text"
                         value={this.state.lastname}
                         onChange={this.update('lastname')}
                         className='signup-input' />
                 </label>
-                <label>Your email
+                <label className='email'>Your email
                     <input 
                         type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         className='signup-input' />
                 </label>
-                <label>Password
+                <label className='password'>Password
                     <input 
                         type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
                         className='signup-input' />
                 </label>
-                    <input className="session-submit" type="submit" value='Create account' />  
+                    <input className="signup-submit" type="submit" value='Create account' />  
                 </form>
             </div>
         );
