@@ -40,7 +40,7 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className='signup-form-container'>
-                <Link to="/" className="header-home-link">Questo</Link>
+                <Link to={"/"} className="header-home-link">Questo</Link>
                 <div className="signup-form-box">
                     <form onSubmit={this.handleSubmit} >
                         <h3 className='sign-up-title'> Create your account </h3>
@@ -80,7 +80,7 @@ class SignupForm extends React.Component {
                             onChange={this.update('password')}
                             className='signup-input' />
                     </label>
-                    <input className="signup-submit" type="submit" value='Create account' />  
+                    <input className="session-submit" type="submit" value='Create account' />  
                     </form>
                 </div>
             </div>

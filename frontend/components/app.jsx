@@ -22,6 +22,7 @@ const App = () => (
             <Route exact path='/' component={LandingPageContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+            <Route exact path='/events' component={EventsFormontainer} />
         </Switch>
     </div>
 );

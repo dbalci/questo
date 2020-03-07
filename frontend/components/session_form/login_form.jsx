@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+    Route,
+    Redirect,
+    Switch,
+    Link,
+    HashRouter
+} from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -34,25 +41,31 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="signup-form-container">
-                <form>
-                <br />
+                <Link to={"/"} className="header-home-link">Questo</Link>
+                <div className="signup-form-box">
+                <form onSubmit={this.handleSubmit} >
+                    <h3 className='sign-up-title'> Log in to your account </h3>
+                    <span className='second-line'>
+                        or <Link to={"/signup"} className='signup-in-login'>create account</Link>
+                    </span>                        
                     {this.renderErrors()}
-                    <label>Your email
-                    <input
+                        <label className='your_email'>
+                        <input
+                            placeholder='Your email'
                             type="text"
                             value={this.state.email}
-                            onChange={this.update('email')}
-                            className='signup-input' />
-                    </label>
-                    <label>Password
-                    <input
+                            onChange={this.update('email')} />
+                        </label>
+                        <label className='password'>
+                        <input
+                            placeholder='Password'
                             type="password"
                             value={this.state.password}
-                            onChange={this.update('password')}
-                            className='signup-input' />
-                    </label>
-                    <input className="session-submit" type="submit" value='Log in' />
-                </form>
+                            onChange={this.update('password')} />                        
+                        </label>
+                        <input className="session-submit" type="submit" value='Log in' />
+                    </form>
+                </div>
             </div>
         );
     }
