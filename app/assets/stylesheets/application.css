@@ -79,7 +79,6 @@
 .signup-form-box {
     display: flex;
     position: absolute;
-    margin-top: 100px;
     width: 25rem;
     height: 25rem;
     padding: 2rem;
@@ -87,40 +86,55 @@
     border-radius: 8px;
     background: rgba(252, 250, 250, 0.865);
     margin-top: 180px;
+    font-size: 1.8rem;
 }
 
+.signup-form-box form {
+    width: 100%;
+}
 
+.sign-up-title {
+    align-items: center;
+}
 
-.signup-form-container input {
-    font-size: normal;
+.second-line {
+    font-size: small;
+}
+
+form input[type='submit'] {
+    height: 30px;
+    width: 120px;
+    display: block;
+    text-align: center;
+    position: absolute;
+    background-color: #33c430;
+    border-radius: 10px;
+    color: white;
+    align-items: center;
+}
+
+.signup-form-container input[type='text'] , input[type='password']  {
+    background-color: rgba(252, 250, 250, 0.865);
     border-top: none;
     border-right: none;
     border-left: none;
-    margin: 0 10px;
+    height: 2rem;
+    line-height: 1rem;
+    width: 10rem;
+}
+
+form label {
+    margin: 1rem 2rem 1rem 0;
 }
 
 .first-name .last-name {
-    display: flex;
     align-items: row;
 }
 
 .email {
     display: flex;
-
 }
 
 .password {
     display: flex;
-
-}
-
-.signup-submit {
-    text-align: center;
-    height: 30px;
-    width: 120px;
-    display: flex;
-    position: absolute;
-    background-color: #33c430;
-    border-radius: 10px;
-    color: white;
 }

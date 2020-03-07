@@ -550,7 +550,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "sign-up-title"
-      }, " Create your account "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "or ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, " Create your account "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "second-line"
+      }, "or   ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/login',
         className: "login-in-signup"
       }, "log in to your account")), this.renderErrors(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {

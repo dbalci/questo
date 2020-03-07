@@ -44,8 +44,8 @@ class SignupForm extends React.Component {
                 <div className="signup-form-box">
                     <form onSubmit={this.handleSubmit} >
                         <h3 className='sign-up-title'> Create your account </h3>
-                        <span>
-                        or <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
+                        <span className='second-line'>
+                        or   <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
                         </span>
                         {this.renderErrors()}
                     <label className='first-name'>
