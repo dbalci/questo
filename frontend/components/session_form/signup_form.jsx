@@ -39,43 +39,50 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    Create your account
-                    <br/>
-                    or <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
-
-                    {this.renderErrors()}
-                <label className='first-name'>First name
-                    <input 
-                        type="text"
-                        value={this.state.name}
-                        onChange={this.update('name')}
-                        className='signup-input' />
-                </label>
-                <label className='last-name'>Last name
-                    <input 
-                        type="text"
-                        value={this.state.lastname}
-                        onChange={this.update('lastname')}
-                        className='signup-input' />
-                </label>
-                <label className='email'>Your email
-                    <input 
-                        type="text"
-                        value={this.state.email}
-                        onChange={this.update('email')}
-                        className='signup-input' />
-                </label>
-                <label className='password'>Password
-                    <input 
-                        type="password"
-                        value={this.state.password}
-                        onChange={this.update('password')}
-                        className='signup-input' />
-                </label>
+            <div className='signup-form-container'>
+                <Link to="/" className="header-home-link">Questo</Link>
+                <div className="signup-form-box">
+                    <form onSubmit={this.handleSubmit} >
+                        <h3 className='sign-up-title'> Create your account </h3>
+                        <span>
+                        or <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
+                        </span>
+                        {this.renderErrors()}
+                    <label className='first-name'>
+                        <input 
+                            placeholder='First name'
+                            type="text"
+                            value={this.state.name}
+                            onChange={this.update('name')}
+                            className='signup-input' />
+                    </label>
+                    <label className='last-name'>
+                        <input 
+                            placeholder='Last name'
+                            type="text"
+                            value={this.state.lastname}
+                            onChange={this.update('lastname')}
+                            className='signup-input' />
+                    </label>
+                    <label className='email'>
+                        <input 
+                            placeholder='Your email'
+                            type="text"
+                            value={this.state.email}
+                            onChange={this.update('email')}
+                            className='signup-input' />
+                    </label>
+                    <label className='password'>
+                        <input 
+                            placeholder='Password'
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                            className='signup-input' />
+                    </label>
                     <input className="signup-submit" type="submit" value='Create account' />  
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }
