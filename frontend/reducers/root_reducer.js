@@ -3,10 +3,13 @@ import { combineReducers } from 'redux';
 // import ui from './ui_reducer';
 import session from './session_reducer';
 import errors from './errors_reducer';
+import EventsReducer from './events_reducer';
+
 
 const RootReducer = combineReducers({
     // entities,
     session,
+    events: EventsReducer,
     // ui,
     errors,
 });

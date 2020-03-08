@@ -1,27 +1,40 @@
-class EventsController < ApplicationController
+class Api::EventsController < ApplicationController
+  def index
+    @events = Event.all
+  end
 
-    def index
-        @events = Event.all
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def create
+    @event = Event.new(event_params)
+    if @event.save
+      render :show
+    else
+      render json: @event.errors.full_messages, status: 422
     end
+  end
 
-    def create
-        @event = Event.create!(event_params)
-        render :show
+  def update
+    @event = Event.find_by(id: params[:id])
+    if @event.update(event_params)
+      render :show
+    else
+      render json: @event.errors.full_messages, status: 422
     end
+  end
 
-    def show
-        @event = Event.find(params[:id])
-    end
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
 
-    def delete
-        @event = Event.find(params[:id])
+    render :show
+  end
 
-    end
+  private
 
-    private
-
-    def event_params
-        params.rewuire(:event).permit(:title, :start_date, :end_date, :code, :is_ended)
-    end
-
+  def event_params
+    params.require(:event).permit(:description, :date)
+  end
 end

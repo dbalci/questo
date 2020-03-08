@@ -4,13 +4,16 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
+    HashRouter,
 } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props;
+        this.state = {
+            email: '',
+            password: ''
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -21,9 +24,11 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
+
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+
     }
 
     renderErrors() {
