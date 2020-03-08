@@ -335,13 +335,15 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           event = _this$props.event,
           deleteEvent = _this$props.deleteEvent;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/events/".concat(event.id)
-      }, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "each-event"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/events"
+      }, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return deleteEvent(event.id);
         }
-      }, "Delete Event"));
+      }, "Delete Event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event.title));
     }
   }]);
 
@@ -369,14 +371,26 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           events = _this$props2.events,
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, events.map(function (event) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "events-nav-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
+        className: "logout"
+      }, "Logout")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "Events-title"
+      }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "event-create-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: '/events/new'
+      }, "Create Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "events-list"
+      }, events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventIndexItem, {
+          key: event.id,
           event: event,
           deleteEvent: deleteEvent
         });
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: '/events/new'
-      }, "New Event"));
+      })));
     }
   }]);
 
