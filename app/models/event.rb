@@ -6,7 +6,11 @@ class Event < ApplicationRecord
     validates :is_ended, inclusion: { in: [ true, false ] }
 
     belongs_to :user,
-    foreign_key: :event_id,
+    foreign_key: :user_id,
     class_name: :User
+
+    has_many :questions,
+    foreign_key: :event_id,
+    class_name: :Question
     
 end

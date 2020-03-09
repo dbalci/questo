@@ -11,6 +11,12 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Event
     
+    has_many :questions,
+    foreign_key: :user_id,
+    class_name: :Question
+
+
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)

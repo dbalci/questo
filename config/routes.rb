@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :questions
   namespace :api, defaults: {format: :json} do
     resources :events, only: [:index, :show, :create, :destroy] #bonus: update
     resource :user, only: [:create]

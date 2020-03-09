@@ -48,37 +48,39 @@ class SignupForm extends React.Component {
                         or   <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
                         </span>
                         {this.renderErrors()}
-                    <label className='first-name'>
-                        <input 
-                            placeholder='First name'
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.update('name')}
-                            className='signup-input' />
-                    </label>
-                    <label className='last-name'>
-                        <input 
-                            placeholder='Last name'
-                            type="text"
-                            value={this.state.lastname}
-                            onChange={this.update('lastname')}
-                            className='signup-input' />
-                    </label>
-                    <label className='email'>
+                    <div>
+                        <label className='first-name'>
+                            <input 
+                                placeholder='First name'
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.update('name')}
+                                className='signup-input' />
+                        </label>
+                        <label className='last-name'>
+                            <input 
+                                placeholder='Last name'
+                                type="text"
+                                value={this.state.lastname}
+                                onChange={this.update('lastname')}
+                                className='signup-input' />
+                        </label>
+                    </div>
+                    <label>
                         <input 
                             placeholder='Your email'
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            className='signup-input' />
+                            className='email' />
                     </label>
-                    <label className='password'>
+                    <label>
                         <input 
                             placeholder='Password'
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            className='signup-input' />
+                            className='password' />
                     </label>
                     <input className="session-submit" type="submit" value='Create account' />  
                     </form>
