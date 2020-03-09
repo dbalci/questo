@@ -371,13 +371,15 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           events = _this$props2.events,
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "events-nav-bar"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "events-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "events-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
         className: "logout"
       }, "Logout")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "Events-title"
+        className: "events-title"
       }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-create-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
