@@ -18,5 +18,5 @@
 
 # event1 = Event.create(title: Faker::Movies::LordOfTheRings.quote, start_date:Faker::Date.between(from: 14.days.ago, to: 7.days.ago), end_date: Faker::Date.between(from: 7.days.ago, to: Date.today), code: Faker::Alphanumeric.alphanumeric(number:4, min_alpha:1, min_numeric: 3), is_ended: true)
 event1 = Event.create(title: 'first', start_date: '07/07/07', end_date: '09/09/09', code: '#DES', is_ended: true)
-event2 = Event.create(title: 's', start_date: '07/07/07', end_date: '09/09/09', code: '#DES', is_ended: true)
-event3 = Event.create(title: 't', start_date: '07/07/07', end_date: '09/09/09', code: '#DES', is_ended: true)
+event2 = Event.create(title: 's', start_date: '07/07/07', end_date: '09/09/09', code: '#DER', is_ended: true)
+event3 = Event.create(title: 't', start_date: '07/07/07', end_date: '09/09/09', code: '#DET', is_ended: true)
