@@ -7,6 +7,9 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    has_many :events,
+    foreign_key: :user_id,
+    class_name: :Event
     
     def password=(password)
         @password = password
