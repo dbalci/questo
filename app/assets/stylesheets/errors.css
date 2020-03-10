@@ -1,0 +1,11 @@
+.errors {
+    color: crimson;
+    font-size: 13px;
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.errors p {
+    margin: 0px;
+}

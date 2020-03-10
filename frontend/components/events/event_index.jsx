@@ -26,22 +26,23 @@ class EventIndex extends React.Component {
     componentDidMount() {
         this.props.fetchEvents()
     };
-
-
+    
     render() {
         let { events, deleteEvent, createEvent } = this.props
         return (
-            <div className='events-page'>
+            <div className='events'>
                 <nav className='events-nav'>
                     <h2>Hello</h2>    
-                    <Link to='/' className='logout'>Logout</Link>
+                    <Link to={'/'} className='logout' >Log out</Link>
                 </nav>
                 <span className='events-title'>
-                    Events
+                    <p>Events</p>
                 </span>
+                <div className='button'>
                     <div className='event-create-button'>
                         <Link to={'/events/new'}>Create Event</Link>
                     </div>
+                </div>
                 {/* modal eklenecek new event icin!! */}
                 <div className='events-list'>
                     {

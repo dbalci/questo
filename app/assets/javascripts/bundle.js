@@ -372,19 +372,21 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "events-page"
+        className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "events-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
+        to: '/',
         className: "logout"
-      }, "Logout")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "events-title"
-      }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-create-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/events/new'
-      }, "Create Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Create Event"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events-list"
       }, events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventIndexItem, {
@@ -627,8 +629,10 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "errors"
+      }, this.props.errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           key: "error-".concat(i)
         }, error);
       }));
@@ -824,7 +828,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "errors"
+      }, this.props.errors.map(function (error, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "error-".concat(i)
         }, error);
