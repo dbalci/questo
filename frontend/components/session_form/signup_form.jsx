@@ -39,49 +39,45 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className='signup-form-container'>
+            <div className='login-signup'>
                 <Link to={"/"} className="header-home-link">Questo</Link>
-                <div className="signup-form-box">
+                <div className="form-box">
                     <form onSubmit={this.handleSubmit} >
-                        <h3 className='sign-up-title'> Create your account </h3>
+                        <div className='form-title'> Create your account </div>
                         <span className='second-line'>
-                        or   <Link to={'/login'} className='login-in-signup'>log in to your account</Link>
+                        or   <Link to={'/login'} className='link-to'>log in to your account</Link>
                         </span>
+                        <br/>
                         {this.renderErrors()}
-                    <div>
-                        <label className='first-name'>
+                    <div className='form-input'>
+                        <div className='firt-last-name'>
                             <input 
+                                className='first-name'
                                 placeholder='First name'
                                 type="text"
                                 value={this.state.name}
-                                onChange={this.update('name')}
-                                className='signup-input' />
-                        </label>
-                        <label className='last-name'>
+                                onChange={this.update('name')} />
                             <input 
                                 placeholder='Last name'
                                 type="text"
                                 value={this.state.lastname}
                                 onChange={this.update('lastname')}
-                                className='signup-input' />
-                        </label>
-                    </div>
-                    <label>
+                                className='last-name' />
+                        </div>
                         <input 
                             placeholder='Your email'
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             className='email' />
-                    </label>
-                    <label>
                         <input 
                             placeholder='Password'
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             className='password' />
-                    </label>
+                    </div>
+                    <br/>
                     <input className="session-submit" type="submit" value='Create account' />  
                     </form>
                 </div>

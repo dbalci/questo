@@ -45,30 +45,34 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-form-container">
+            <div className='login-signup'>
                 <Link to={"/"} className="header-home-link">Questo</Link>
-                <div className="signup-form-box">
-                <form onSubmit={this.handleSubmit} >
-                    <h3 className='sign-up-title'> Log in to your account </h3>
-                    <span className='second-line'>
-                        or <Link to={"/signup"} className='signup-in-login'>create account</Link>
-                    </span>                        
-                    {this.renderErrors()}
-                        <label className='your_email'>
-                        <input
-                            placeholder='Your email'
-                            type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')} />
-                        </label>
-                        <label className='password'>
-                        <input
-                            placeholder='Password'
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')} />                        
-                        </label>
-                        <input className="session-submit" type="submit" value='Log in' />
+                <div className="form-box">
+                    <form onSubmit={this.handleSubmit} >
+                        <div className='form-title' id='login'> Log in to your account </div>
+                        <span className='second-line'>
+                            or <Link to={"/signup"} className='link-to'>create account</Link>
+                        </span>   
+                        <br/>
+                                     
+                        {this.renderErrors()}
+                        <div className='login-input'>
+                            <input
+                                className='your_email'
+                                placeholder='Your email'
+                                type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')} />
+                            <input
+                                className='password'
+                                placeholder='Password'
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')} /> 
+                        </div>
+                        <br/>
+                        <br/>
+                    <input className="session-submit" type="submit" value='Log in' />
                     </form>
                 </div>
             </div>

@@ -18,7 +18,6 @@
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     background-image: url("/images/back_ground.png");
-
  }
 
 .landing-nav {
@@ -26,7 +25,7 @@
     justify-content: center;
     align-items: center;
     height: 5rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     line-height: 2.5;
     font-size: 20px;
 }
@@ -37,7 +36,7 @@
     text-decoration: none;
     padding: 0 20px;
     margin: 80px;
-    font-size: 1.5em;
+    font-size: 35px;
     font-weight: bolder;
 }
 
@@ -69,84 +68,7 @@
     color: black;
 }
 
-.signup-form-container {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-    height: -webkit-fill-available;
-}
 
-.signup-form-box {
-    display: flex;
-    position: absolute;
-    width: 25rem;
-    height: 25rem;
-    padding: 2rem;
-    box-shadow: 0px 5px 10px 5px silver;
-    border-radius: 8px;
-    background: rgba(252, 250, 250, 0.865);
-    margin-top: 180px;
-    font-size: 1.8rem;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.signup-form-box form {
-    width: 100%;
-}
-
-.sign-up-title {
-    align-items: center;
-    font-size: 2.3rem;
-    font-weight: 400;
-}
-
-.second-line {
-    font-size: small;
-}
-
-.login-in-signup {
-    text-decoration: none;
-    color: blue;
-}
-
-form input[type='submit'] {
-    height: 30px;
-    width: 120px;
-    display: block;
-    text-align: center;
-    background-color: #33c430;
-    border-radius: 10px;
-    color: white;
-    align-items: center;
-}
-
-form label {
-    margin: 1rem 2rem 1rem 0;
-}
-
-.signup-form-container input[type='text'] , input[type='password']  {
-    background-color: rgba(252, 250, 250, 0.865);
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    height: 2rem;
-    line-height: 1rem;
-}
-
-.email {
-    width: 15rem;
-}
-
-.password {
-    width: 15rem;
-}
 
 .events-page {
     display: block;
@@ -157,7 +79,6 @@ form label {
     align-items: center;
     justify-content: space-between;
     height: 5rem;
-    max-width: 1200px;
     line-height: 2.5;
     font-size: 20px;
     background-color: #33c430;
@@ -180,7 +101,6 @@ form label {
 .events-title {
     display: block;
     font-weight: initial;
-    max-width: 1200px;
     height: 3rem;
     background-color: aliceblue;
 
