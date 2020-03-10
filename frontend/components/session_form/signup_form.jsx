@@ -11,6 +11,8 @@ class SignupForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     update(field) {
@@ -23,6 +25,27 @@ class SignupForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+
+        this.setState({ username: 'test', password: 'password' });
+
+        const demo = {
+            name: 'name',
+            lastname: 'lastname',
+            email: 'email',
+            password: 'password'
+        }
+
+        this.props.action(demo);
+    }
+
+    demoLogin() {
+        return (
+            <button onClick={this.handleDemo}>Demo Login</button>
+        );
     }
 
     renderErrors() {
@@ -78,7 +101,8 @@ class SignupForm extends React.Component {
                             className='password' />
                     </div>
                     <br/>
-                    <input className="session-submit" type="submit" value='Create account' />  
+                    <input className="session-submit" type="submit" value='Create account' /> 
+                    <button onSubmit={this.demoLogin}>Demo Login</button>
                     </form>
                 </div>
             </div>

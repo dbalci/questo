@@ -777,6 +777,8 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
+    _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -795,6 +797,29 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user);
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      e.preventDefault();
+      this.setState({
+        username: 'test',
+        password: 'password'
+      });
+      var demo = {
+        name: 'name',
+        lastname: 'lastname',
+        email: 'email',
+        password: 'password'
+      };
+      this.props.action(demo);
+    }
+  }, {
+    key: "demoLogin",
+    value: function demoLogin() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleDemo
+      }, "Demo Login");
     }
   }, {
     key: "renderErrors",
@@ -856,7 +881,9 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "session-submit",
         type: "submit",
         value: "Create account"
-      }))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onSubmit: this.demoLogin
+      }, "Demo Login"))));
     }
   }]);
 
