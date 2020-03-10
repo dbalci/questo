@@ -10,9 +10,9 @@ class EventIndexItem extends React.Component {
         let { event, deleteEvent } = this.props;
         return (
             <div className='each-event'>
-                <Link to={`/events`}>{event.title}</Link>
+                {/* <Link to={`/events`}></Link> */}
+                <p>{event.title}</p>
                 <button onClick={() => deleteEvent(event.id)}>Delete Event</button>
-                <h1>{event.title}</h1>
             </div>
         )
     }
@@ -29,6 +29,7 @@ class EventIndex extends React.Component {
     
     render() {
         let { events, deleteEvent, createEvent } = this.props
+        console.log('events are ',events)
         return (
             <div className='events'>
                 <nav className='events-nav'>

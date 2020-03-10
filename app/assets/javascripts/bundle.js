@@ -337,13 +337,11 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
           deleteEvent = _this$props.deleteEvent;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-event"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/events"
-      }, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return deleteEvent(event.id);
         }
-      }, "Delete Event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event.title));
+      }, "Delete Event"));
     }
   }]);
 
@@ -371,6 +369,7 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           events = _this$props2.events,
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent;
+      console.log('events are ', events);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {

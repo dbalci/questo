@@ -58,3 +58,14 @@ p {
     border-radius: 1rem;
     background-color: #33c430;
 }
+
+.each-event {
+
+    display: flex;
+    width: 500px;
+    height: 30px;
+    flex-wrap: wrap;
+    background-color: khaki;
+    justify-content: space-between;
+    justify-items: baseline;
+}
