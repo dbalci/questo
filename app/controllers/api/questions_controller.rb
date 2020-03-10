@@ -33,9 +33,9 @@ class Api::QuestionsController < ApplicationController
         if @question && question.update_attributes(question_params)
             render :show
         elsif !@question
-            render json: ['Could not locate question'], status 400
+            render json: ['Could not locate question'], status: 400
         else
-            render json: @question.errors.full_messages, status 401
+            render json: @question.errors.full_messages, status: 401
         end
     end
 
