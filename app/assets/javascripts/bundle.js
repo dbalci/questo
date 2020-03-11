@@ -511,11 +511,10 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "events-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: '/'
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        to: '/',
         className: "logout",
         onClick: this.props.logout
-      }, "Log out"), " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "events-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-line"

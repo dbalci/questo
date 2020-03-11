@@ -9,7 +9,7 @@
     height: 5rem;
     line-height: 2.5;
     font-size: 20px;
-    background-color: #33c430;
+    background-color: #4babd5;
     padding: 0 20px 0 20px;
     font-weight: bolder;
     color: aliceblue;
@@ -26,7 +26,7 @@
     height: 2rem;
     border-radius: 1rem;
     background-color: aliceblue;
-    color: #33c430;
+    color: #4babd5;
 }
 
 .events-title {
@@ -56,7 +56,7 @@ p {
     width: 7rem;
     height: 2rem;
     border-radius: 1rem;
-    background-color: #33c430;
+    background-color: #4babd5;
     font-size: 14px;
 }
 
@@ -77,10 +77,5 @@ p {
     justify-items: center;
     align-items: center;
     flex-direction: column;
-
-}
-
-Link {
-    color: pink;
     text-decoration: none;
 }

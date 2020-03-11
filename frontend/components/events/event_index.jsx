@@ -39,7 +39,7 @@ class EventIndex extends React.Component {
             <div className='events'>
                 <nav className='events-nav'>
                     <h2>Hello</h2>    
-                    <Link to={'/'}> <button className='logout' onClick={this.props.logout}>Log out</button> </Link>
+                    <Link to={'/'} className='logout' onClick={this.props.logout}>Log out</Link>
                 </nav>
                 <span className='events-title'>
                     <p>Events</p>

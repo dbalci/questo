@@ -31,11 +31,11 @@ body {
 }
 
 .header-home-link {
-    color: #39ac37;
+    color: #4babd5;
     display: flex;
     text-decoration: none;
     padding: 0 20px;
-    margin-left: 80px;
+    margin-top: 80px;
     font-size: 35px;
     font-weight: bolder;
 }
@@ -51,7 +51,7 @@ body {
 .header-signup {
     text-decoration: none;
     display: flex;
-    background-color: #39ac37;
+    background-color: #4babd5;
     color: white;
     border-radius: 10px;
     width: 120px;

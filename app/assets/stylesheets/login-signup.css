@@ -38,17 +38,13 @@ form {
     margin: 0px 15px 15px 15px;
 }
 
-#login {
-    font-size: 35px;
-}
-
 .second-line {
     font-size: small;
 }
 
-.link-to {
+.link-to{
     text-decoration: none;
-    color: blue;
+    color: #0073d8;
 }
 
 .form-input {
@@ -63,10 +59,11 @@ input[type='submit'] {
     width: 120px;
     display: block;
     text-align: center;
-    background-color: #33c430;
+    background-color: #4babd5;
     border-radius: 10px;
     color: white;
     align-items: center;
+    font-size: 13px;
 }
 
 .login-input {
@@ -81,7 +78,6 @@ input[type='text'] , input[type='password']  {
     border-top: none;
     border-right: none;
     border-left: none;
-    /* height: 2rem; */
     line-height: 2rem;
 }
 
