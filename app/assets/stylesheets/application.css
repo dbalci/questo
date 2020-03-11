@@ -14,18 +14,18 @@
  *= require_self
  */
 
- body {
+body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     background-image: url("/images/back_ground.png");
- }
+    text-decoration: none;
+}
 
 .landing-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5rem;
-    /* max-width: 1200px; */
     line-height: 2.5;
     font-size: 20px;
 }
@@ -35,7 +35,7 @@
     display: flex;
     text-decoration: none;
     padding: 0 20px;
-    margin: 80px;
+    margin-left: 80px;
     font-size: 35px;
     font-weight: bolder;
 }
@@ -45,6 +45,7 @@
     flex: 1;
     justify-content: flex-end;
     padding: 10px;
+    margin-right: 80px;
 }
 
 .header-signup {

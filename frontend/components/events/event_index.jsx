@@ -9,11 +9,13 @@ class EventIndexItem extends React.Component {
     render() {
         let { event, deleteEvent } = this.props;
         return (
-            <div className='each-event'>
-                {/* <Link to={`/events`}></Link> */}
-                <p>{event.title}</p>
-                <button onClick={() => deleteEvent(event.id)}>Delete Event</button>
-            </div>
+            <Link to={`/events/${event.id}`}  className='event-list' >
+                <div className='each-event'  >
+                    {/* <Link to={`/events`}></Link> */}
+                    <p>{event.title}</p>
+                    <button className='delete-button' onClick={() => deleteEvent(event.id)}>Delete Event</button>
+                </div>
+            </Link>
         )
     }
 }
@@ -27,21 +29,23 @@ class EventIndex extends React.Component {
         this.props.fetchEvents()
     };
     
+    // componentDidUpdate(){
+        
+    // }
+
     render() {
         let { events, deleteEvent, createEvent, openModal } = this.props
         return (
             <div className='events'>
                 <nav className='events-nav'>
                     <h2>Hello</h2>    
-                    <Link to={'/'}> <button onClick={this.props.logout}>Log out</button> </Link>
+                    <Link to={'/'}> <button className='logout' onClick={this.props.logout}>Log out</button> </Link>
                 </nav>
                 <span className='events-title'>
                     <p>Events</p>
                 </span>
-                <div className='button'>
-                    <div className='event-create-button'>
-                        <button onClick={() => openModal('create')} >Create Event</button>
-                    </div>
+                <div className='button-line'>
+                    <button className='event-create-button' onClick={() => openModal('create')} >Create Event</button>
                 </div>
                 <div className='events-list'>
                     {

@@ -11,20 +11,34 @@ const mstp = ({ errors }) => {
 
 const mdtp = dispatch => {
     return {
+        processForm: (user) => dispatch(login(user)),
     };
 };
 
 class LandingPage extends React.Component {
     constructor(props){
         super(props)
+        this.handleDemo = this.handleDemo.bind(this);
     }
     
+    handleDemo(e) {
+        e.preventDefault();
+
+        const demo = {
+            email: 'email',
+            password: 'password'
+        }
+
+        this.props.processForm(demo).then(this.props.history.push('/events'));
+    }
+
     render(){
         return (
             <div>
                 <nav className="landing-nav">
                     <Link to="/" className="header-home-link">Questo</Link>
                     <div className="header-account">
+                        <Link to='/events' onClick={this.handleDemo}>Demo</Link>
                         <Link to="/login" className="header-login">Log In</Link>
                         <Link to="/signup" className="header-signup">Sign Up</Link>
                     </div>

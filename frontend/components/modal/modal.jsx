@@ -4,18 +4,20 @@ import { connect } from 'react-redux';
 import CreateEventContainer from '../events/create_event_container'
 
 function Modal({ modal, closeModal }) {
+     
     if (!modal) {
         return null;
     }
     let component;
     switch (modal) {
         case 'create':
+             
             component = <CreateEventContainer />;
             break;
         default:
             return null;
     }
-
+     
     return (
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
@@ -26,8 +28,9 @@ function Modal({ modal, closeModal }) {
 }
 
 const mstp = state => {
+     
     return {
-        modal: state.modal
+        modal: state.ui.modal
     };
 };
 

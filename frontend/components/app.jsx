@@ -13,14 +13,14 @@ import LogInFormContainer from './session_form/login_form_container';
 import LandingPageContainer from './landing/landing'
 import EventsIndexContainer from './events/event_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Modal from './modal/modal';
+import ModalContainer from './modal/modal';
 
 const App = () => (
     <div>
         <header>
        
         </header>
-        <Modal />
+        <ModalContainer />
         <Switch>
             <Route exact path='/' component={LandingPageContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
