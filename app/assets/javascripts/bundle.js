@@ -678,6 +678,7 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
         className: "header-account"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/events",
+        className: "demo",
         onClick: this.handleDemo
       }, "Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/login",
@@ -879,7 +880,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         className: "login-signup"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
-        className: "header-home-link"
+        className: "home-link"
       }, "Questo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1053,7 +1054,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "login-signup"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
-        className: "header-home-link"
+        className: "home-link"
       }, "Questo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {

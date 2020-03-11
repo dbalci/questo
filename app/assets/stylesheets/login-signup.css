@@ -6,6 +6,16 @@
     height: -webkit-fill-available;
 }
 
+.home-link {
+    color: #4babd5;
+    display: flex;
+    text-decoration: none;
+    padding: 0 20px;
+    margin: 80px;
+    font-size: 35px;
+    font-weight: bolder; 
+}
+
 .form-box {
     display: flex;
     position: absolute;
