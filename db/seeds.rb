@@ -17,7 +17,7 @@ User.destroy_all
 # user6 = User.create(name: Faker::Movies::LordOfTheRings.name, lastname: Faker::Movies::LordOfTheRings.lastname, email: Faker::Internet.email, password: 'qazwsx')
 
 
-user1 = User.create(name: 'demo', lastname: 'demot', email: 'demo', password: 'qazwsx')
+user1 = User.create(name: 'demo', lastname: 'demot', email: 'email', password: 'password')
 # event1 = Event.create(title: Faker::Movies::LordOfTheRings.quote, start_date:Faker::Date.between(from: 14.days.ago, to: 7.days.ago), end_date: Faker::Date.between(from: 7.days.ago, to: Date.today), code: Faker::Alphanumeric.alphanumeric(number:4, min_alpha:1, min_numeric: 3), is_ended: true)
 event1 = Event.create(title: 'first', start_date: '07/07/07', end_date: '09/09/09', code: '#DES', is_ended: true , user_id: user1.id)
 event2 = Event.create(title: 's', start_date: '07/07/07', end_date: '09/09/09', code: '#DER', is_ended: true , user_id: user1.id)

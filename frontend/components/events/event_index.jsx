@@ -29,12 +29,11 @@ class EventIndex extends React.Component {
     
     render() {
         let { events, deleteEvent, createEvent } = this.props
-        console.log('events are ',events)
         return (
             <div className='events'>
                 <nav className='events-nav'>
                     <h2>Hello</h2>    
-                    <Link to={'/'} className='logout' >Log out</Link>
+                    <Link to={'/'}> <button onClick={this.props.logout}>Log out</button> </Link>
                 </nav>
                 <span className='events-title'>
                     <p>Events</p>
