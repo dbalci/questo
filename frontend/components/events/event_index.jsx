@@ -28,7 +28,7 @@ class EventIndex extends React.Component {
     };
     
     render() {
-        let { events, deleteEvent, createEvent } = this.props
+        let { events, deleteEvent, createEvent, openModal } = this.props
         return (
             <div className='events'>
                 <nav className='events-nav'>
@@ -40,10 +40,9 @@ class EventIndex extends React.Component {
                 </span>
                 <div className='button'>
                     <div className='event-create-button'>
-                        <Link to={'/events/new'}>Create Event</Link>
+                        <button onClick={() => openModal('create')} >Create Event</button>
                     </div>
                 </div>
-                {/* modal eklenecek new event icin!! */}
                 <div className='events-list'>
                     {
                         events.map(event => <EventIndexItem key={event.id} event={event} deleteEvent={deleteEvent} />)

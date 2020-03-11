@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import { createEvent } from '../../actions/event_actions';
 import EventForm from './event_form';
+import { openModal } from '../../actions/modal_actions'
 
 const mstp = (state) => ({
     event: {
+        description: '',
         date: '',
-        description: ''
     },
-    formType: 'Create Event'
+    formType: 'create'
 });
 
 const mdtp = (dispatch) => ({
-    submitEvent: (event) => dispatch(createEvent(event))
+    submitEvent: (event) => dispatch(createEvent(event)),
+    
 })
 
 export default connect(mstp, mdtp)(EventForm);
