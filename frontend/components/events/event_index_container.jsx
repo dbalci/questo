@@ -4,9 +4,11 @@ import { logout } from '../../actions/session_actions'
 import EventIndex from './event_index';
 import { openModal } from '../../actions/modal_actions'
 
-const mstp = (state) => ({ 
-    events: Object.values(state.events) 
-});
+const mstp = (state) => { 
+    return {
+        events: Object.values(state.events) 
+    }
+};
 
 const mdtp = (dispatch) => ({
     fetchEvents: () => dispatch(fetchEvents()),

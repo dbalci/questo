@@ -10,7 +10,7 @@ const EventReducer = (oldState = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_EVENTS:
-            return action.events;
+            return action.events.events;
         case RECEIVE_EVENT:
             newState[action.event.id] = action.event
             return newState

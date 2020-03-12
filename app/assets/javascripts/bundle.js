@@ -403,10 +403,32 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
   _createClass(EventForm, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hello", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var event = this.props.event;
+      var date = Date.now;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "create-event-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Create an event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "event-name",
+        placeholder: "Event name"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "start-date",
+        value: "bugun"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "end-date",
+        value: "bugun+3"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "code",
+        value: "#code"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.props.closeModal,
         className: "close-x"
-      }, "X"));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "CANCEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "CREATE EVENT")));
     }
   }]);
 
@@ -465,17 +487,28 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           event = _this$props.event,
           deleteEvent = _this$props.deleteEvent;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "each-event"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/events/".concat(event.id),
         className: "event-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "each-event"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "delete-button",
-        onClick: function onClick() {
-          return deleteEvent(event.id);
-        }
-      }, "Delete Event")));
+        className: "info-fl"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "et"
+      }, event.title, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "ec"
+      }, event.code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "date"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "esd"
+      }, event.start_date[0] + event.start_date[1], " -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "eed"
+      }, event.end_date)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-trash-alt"
+      }));
     }
   }]);
 
@@ -524,7 +557,7 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           return openModal('create');
         }
       }, "Create Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "events-list"
+        className: "list-items"
       }, events.map(function (event) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventIndexItem, {
           key: event.id,
@@ -1221,7 +1254,7 @@ var EventReducer = function EventReducer() {
 
   switch (action.type) {
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENTS"]:
-      return action.events;
+      return action.events.events;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
       newState[action.event.id] = action.event;
@@ -1437,7 +1470,13 @@ var fetchEvents = function fetchEvents() {
     url: "/api/events",
     method: 'GET'
   });
-};
+}; // export const fetchUserEvents = (user) => {
+//     return $.ajax({
+//         url: `/api/users/${user.id}/events`,
+//         method: 'GET'
+//     });
+// };
+
 var fetchEvent = function fetchEvent(eventId) {
   return $.ajax({
     url: "/api/events/".concat(eventId),

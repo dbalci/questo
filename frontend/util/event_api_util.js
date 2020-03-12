@@ -5,6 +5,13 @@ export const fetchEvents = () => {
     });
 };
 
+// export const fetchUserEvents = (user) => {
+//     return $.ajax({
+//         url: `/api/users/${user.id}/events`,
+//         method: 'GET'
+//     });
+// };
+
 export const fetchEvent = (eventId) => {
     return $.ajax({
         url: `/api/events/${eventId}`,

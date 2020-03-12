@@ -9,13 +9,25 @@ class EventIndexItem extends React.Component {
     render() {
         let { event, deleteEvent } = this.props;
         return (
-            <Link to={`/events/${event.id}`}  className='event-list' >
-                <div className='each-event'  >
+            <div className='each-event'  >
+                <Link to={`/events/${event.id}`}  className='event-list' >
                     {/* <Link to={`/events`}></Link> */}
-                    <p>{event.title}</p>
-                    <button className='delete-button' onClick={() => deleteEvent(event.id)}>Delete Event</button>
-                </div>
-            </Link>
+                    <ul className='info'>
+                        <div className='info-fl'>
+                            <li className='et'>{event.title}  </li>
+                            <li className='ec'>{event.code}</li>
+                        </div>
+                        <div className='date'>
+                            <li className='esd'>{event.start_date[0]+event.start_date[1]} -</li>
+                            <li className='eed'>{event.end_date}</li>
+                        </div>
+                    </ul>
+                </Link>
+                <i class="far fa-trash-alt"></i>
+
+
+                    {/* <button className='delete-button' onClick={() => deleteEvent(event.id)}>Delete Event</button> */}
+            </div>
         )
     }
 }
@@ -47,7 +59,7 @@ class EventIndex extends React.Component {
                 <div className='button-line'>
                     <button className='event-create-button' onClick={() => openModal('create')} >Create Event</button>
                 </div>
-                <div className='events-list'>
+                <div className='list-items'>
                     {
                         events.map(event => <EventIndexItem key={event.id} event={event} deleteEvent={deleteEvent} />)
                     }
