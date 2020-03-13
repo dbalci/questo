@@ -87,8 +87,8 @@ class EventForm extends React.Component {
                         value={this.state.code} />
                 </form>
                 <div className='buttons' >
-                    <button onClick={() => closeModal()} >CANCEL</button>
-                    <button onClick={handleSubmit} >CREATE EVENT</button>
+                    <button className='create-event-modal-button' id='black_button' onClick={() => closeModal()} >CANCEL</button>
+                    <button className='create-event-modal-button' onClick={handleSubmit} >CREATE EVENT</button>
                 </div>
             </div>
         )

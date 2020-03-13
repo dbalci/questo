@@ -493,10 +493,13 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "create-event-modal-button",
+        id: "black_button",
         onClick: function onClick() {
           return closeModal();
         }
       }, "CANCEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "create-event-modal-button",
         onClick: handleSubmit
       }, "CREATE EVENT")));
     }
