@@ -12,7 +12,8 @@ const EventReducer = (oldState = {}, action) => {
         case RECEIVE_EVENTS:
             return action.events.events;
         case RECEIVE_EVENT:
-            newState[action.event.id] = action.event
+            console.log("bizim action budur", action)
+            newState[action.event.event.id] = action.event.event
             return newState
 
         case REMOVE_EVENT:

@@ -452,6 +452,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       var event = Object.assign({}, this.state);
       console.log('event', event);
       this.props.submitEvent(event);
+      this.props.closeModal();
     }
   }, {
     key: "update",
@@ -551,6 +552,19 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(EventIndexItem, [{
+    key: "getPrettyDate",
+    value: function getPrettyDate(event) {
+      var ms_start = Date.parse(event.start_date);
+      var date_start = new Date(ms_start);
+      var start_pretty = date_start.toLocaleDateString();
+      var ms_end = Date.parse(event.end_date);
+      var date_end = new Date(ms_end);
+      var end_pretty = date_end.toLocaleDateString();
+      var pretty_date = '';
+      pretty_date = start_pretty[0] + ' - ' + end_pretty;
+      return pretty_date;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -572,10 +586,8 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       }, event.code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "date"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "esd"
-      }, event.start_date[0] + event.start_date[1], " -"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "eed"
-      }, event.end_date)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, this.getPrettyDate(event))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "far fa-trash-alt",
         onClick: function onClick() {
           return deleteEvent(event.id);
@@ -601,6 +613,9 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
     value: function componentDidMount() {
       this.props.fetchEvents();
     }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
   }, {
     key: "render",
     value: function render() {
@@ -1327,7 +1342,8 @@ var EventReducer = function EventReducer() {
       return action.events.events;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
-      newState[action.event.id] = action.event;
+      console.log("bizim action budur", action);
+      newState[action.event.event.id] = action.event.event;
       return newState;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_EVENT"]:

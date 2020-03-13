@@ -6,6 +6,21 @@ class EventIndexItem extends React.Component {
         super(props)
     }
 
+    getPrettyDate(event){
+    
+        let ms_start = Date.parse(event.start_date);
+        let date_start = new Date(ms_start);
+        let start_pretty = date_start.toLocaleDateString();
+
+        let ms_end = Date.parse(event.end_date);
+        let date_end = new Date(ms_end);
+        let end_pretty = date_end.toLocaleDateString();
+
+        let pretty_date = ''
+        pretty_date = start_pretty[0] + ' - ' + end_pretty
+        return pretty_date
+    }
+
     render() {
         let { event, deleteEvent } = this.props;
         return (
@@ -18,8 +33,7 @@ class EventIndexItem extends React.Component {
                             <li className='ec'>{event.code}</li>
                         </div>
                         <div className='date'>
-                            <li className='esd'>{event.start_date[0]+event.start_date[1]} -</li>
-                            <li className='eed'>{event.end_date}</li>
+                            <li className='eed'>{this.getPrettyDate(event)}</li>
                         </div>
                     </ul>
                 </Link>
@@ -38,6 +52,10 @@ class EventIndex extends React.Component {
     componentDidMount() {
         this.props.fetchEvents()
     };
+    
+    componentDidUpdate(){
+        
+    }
 
     render() {
         let { events, deleteEvent, createEvent, openModal } = this.props

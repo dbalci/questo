@@ -42,8 +42,9 @@ class EventForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const event = Object.assign({}, this.state);
-        console.log('event', event)
+        console.log('event', event);
         this.props.submitEvent(event);
+        this.props.closeModal();
     }
 
 
