@@ -26,7 +26,6 @@ class EventIndexItem extends React.Component {
         return (
             <div className='each-event'  >
                 <Link to={`/events/${event.id}`}  className='event-list' >
-                    {/* <Link to={`/events`}></Link> */}
                     <ul className='info'>
                         <div className='info-fl'>
                             <li className='et'>{event.title}  </li>
@@ -38,7 +37,6 @@ class EventIndexItem extends React.Component {
                     </ul>
                 </Link>
                 <i class="far fa-trash-alt" onClick={() => deleteEvent(event.id)}></i>
-                    {/* <button className='delete-button' onClick={() => deleteEvent(event.id)}>Delete Event</button> */}
             </div>
         )
     }
@@ -62,7 +60,7 @@ class EventIndex extends React.Component {
         return (
             <div className='events'>
                 <nav className='events-nav'>
-                    <h2>Hello</h2>    
+                    <Link to={"/"} className="home-link" id='white'>Questo</Link>                    
                     <Link to={'/'} className='logout' onClick={this.props.logout}>Log out</Link>
                 </nav>
                 <span className='events-title'>

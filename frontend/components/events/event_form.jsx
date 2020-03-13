@@ -61,15 +61,15 @@ class EventForm extends React.Component {
 
         return(
             <div className='create-event-box'>
-                <h1>Create an event</h1>
-                <form>
+                <h1 id='white'>Create an event</h1>
+                <form className='create-event-form'>
                     <input 
                         type="text" 
                         className='event-name' 
                         placeholder='Event name'
                         value={this.state.title}
                         onChange={this.update('title')}/>
-                    <div>
+                    <div className='form-date'>
                         <input 
                             type="date" 
                             className='start-date' 
@@ -86,8 +86,8 @@ class EventForm extends React.Component {
                         className="code"
                         value={this.state.code} />
                 </form>
-                <div className='buttons' >
-                    <button className='create-event-modal-button' id='black_button' onClick={() => closeModal()} >CANCEL</button>
+                <div className='buttons' id='black'>
+                    <button className='create-event-modal-button' onClick={() => closeModal()} >CANCEL</button>
                     <button className='create-event-modal-button' onClick={handleSubmit} >CREATE EVENT</button>
                 </div>
             </div>

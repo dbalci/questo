@@ -470,13 +470,19 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       var handleSubmit = this.handleSubmit;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "create-event-box"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Create an event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "white"
+      }, "Create an event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "create-event-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "event-name",
         placeholder: "Event name",
         value: this.state.title,
         onChange: this.update('title')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-date"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
         className: "start-date",
         value: this.state.start_date,
@@ -491,10 +497,10 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
         className: "code",
         value: this.state.code
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttons"
+        className: "buttons",
+        id: "black"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "create-event-modal-button",
-        id: "black_button",
         onClick: function onClick() {
           return closeModal();
         }
@@ -631,7 +637,11 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "events-nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Hello"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
+        className: "home-link",
+        id: "white"
+      }, "Questo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/',
         className: "logout",
         onClick: this.props.logout
