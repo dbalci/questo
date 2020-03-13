@@ -35,6 +35,6 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:description, :date)
+    params.require(:event).permit(:title, :start_date, :end_date, :code, :is_ended, :user_id)
   end
 end

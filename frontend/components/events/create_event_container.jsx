@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import { createEvent } from '../../actions/event_actions';
 import EventForm from './event_form';
-import { openModal } from '../../actions/modal_actions'
+import { closeModal } from '../../actions/modal_actions'
 
-const mstp = (state) => ({
-    event: {
-        description: '',
-        date: '',
-    },
-    formType: 'create'
-});
+const mstp = (state) => {
+    console.log('state', state)
+    return {
+        userId: state.session.id || 32,
+        formType: 'create'
+    }
+};
 
 const mdtp = (dispatch) => ({
     submitEvent: (event) => dispatch(createEvent(event)),
+    closeModal: () => dispatch(closeModal())
     
 })
 

@@ -15,7 +15,7 @@ const mdtp = (dispatch) => ({
     deleteEvent: (eventId) => dispatch(deleteEvent(eventId)),
     createEvent: (event) => dispatch(createEvent(event)),
     logout: (user) => dispatch(logout(user)),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
 });
 
 export default connect(mstp, mdtp)(EventIndex);

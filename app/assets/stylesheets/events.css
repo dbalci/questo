@@ -47,7 +47,7 @@ p {
     align-items: flex-end;
 }
 
-.event-create-button, .delete-button {
+.event-create-button {
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -58,7 +58,6 @@ p {
     border-radius: 1rem;
     background-color: #4babd5;
     font-size: 14px;
-    z-index: 10;
 }
 
 
@@ -121,4 +120,8 @@ ul div li {
 .ec, .esd, .eed {
     color: #3582a3;
     font-size: smaller;
+}
+
+.fa-trash-alt:before {
+    margin: 20px;
 }

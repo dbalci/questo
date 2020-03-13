@@ -23,9 +23,7 @@ class EventIndexItem extends React.Component {
                         </div>
                     </ul>
                 </Link>
-                <i class="far fa-trash-alt"></i>
-
-
+                <i class="far fa-trash-alt" onClick={() => deleteEvent(event.id)}></i>
                     {/* <button className='delete-button' onClick={() => deleteEvent(event.id)}>Delete Event</button> */}
             </div>
         )
@@ -40,10 +38,6 @@ class EventIndex extends React.Component {
     componentDidMount() {
         this.props.fetchEvents()
     };
-    
-    // componentDidUpdate(){
-        
-    // }
 
     render() {
         let { events, deleteEvent, createEvent, openModal } = this.props
