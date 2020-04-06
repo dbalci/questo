@@ -2,6 +2,7 @@
   "name": "Questo",
   "private": true,
   "dependencies": {
+    "minimist": ">=1.2.3",
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
