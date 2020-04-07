@@ -623,9 +623,6 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
       this.props.fetchEvents();
     }
   }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {}
-  }, {
     key: "render",
     value: function render() {
       var _this$props2 = this.props,

@@ -50,10 +50,6 @@ class EventIndex extends React.Component {
     componentDidMount() {
         this.props.fetchEvents()
     };
-    
-    componentDidUpdate(){
-        
-    }
 
     render() {
         let { events, deleteEvent, createEvent, openModal } = this.props

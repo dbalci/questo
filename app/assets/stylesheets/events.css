@@ -1,8 +1,8 @@
-.events {
+.events{
     display: block;
 }
 
-.events-nav {
+.events-nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +15,7 @@
     color: aliceblue;
 }
 
-.logout {
+.logout{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,25 +29,25 @@
     color: #4babd5;
 }
 
-.events-title {
+.events-title{
     height: 35px;
     background-color: aliceblue;
     display: flex;
     align-items: center;
 }
 
-p {
+p{
     font-weight: 900;
     margin-left: 30px;
 }
 
-.button-line {
+.button-line{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-.event-create-button {
+.event-create-button{
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -60,8 +60,7 @@ p {
     font-size: 14px;
 }
 
-
-.each-event {
+.each-event{
     display: flex;
     width: 80%;
     height: 80px;
@@ -70,10 +69,14 @@ p {
     justify-content: space-between;
     justify-items: baseline;
     align-items: center;
-    margin: 10px;
+    border-bottom: 1px solid cornflowerblue;
 }
 
-.event-list {
+.each-event:hover{
+    background-color: lavenderblush;
+}
+
+.event-list{
     display: flex;
     justify-items: center;
     align-items: center;
@@ -82,14 +85,14 @@ p {
     flex: 1;
 }
 
-.list-items {
+.list-items{
     display: flex;
     justify-items: center;
     align-items: center;
     flex-direction: column;
 }
 
-.info {
+.info{
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -102,26 +105,26 @@ p {
     flex-direction: row;
 }
 
-.info-fl {
+.info-fl{
     display: flex;
     flex-direction: row;
     align-items: baseline;
 }
 
-ul div li {
+ul div li{
     margin: 04px 0px 0px 4px;
     align-items: center;
 }
 
-.et {
+.et{
     color: black;
     font-size: larger;
 }
-.ec, .eed {
+.ec, .eed{
     color: #3582a3;
     font-size: smaller;
 }
 
-.fa-trash-alt:before {
+.fa-trash-alt:before{
     margin: 20px;
 }
