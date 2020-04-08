@@ -337,7 +337,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state) {
-  console.log('state', state);
   return {
     userId: state.session.id || 32,
     formType: 'create'
@@ -450,7 +449,6 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var event = Object.assign({}, this.state);
-      console.log('event', event);
       this.props.submitEvent(event);
       this.props.closeModal();
     }
@@ -563,6 +561,7 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(EventIndexItem, [{
     key: "getPrettyDate",
     value: function getPrettyDate(event) {
+      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var ms_start = Date.parse(event.start_date);
       var date_start = new Date(ms_start);
       var start_pretty = date_start.toLocaleDateString();
@@ -570,7 +569,7 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       var date_end = new Date(ms_end);
       var end_pretty = date_end.toLocaleDateString();
       var pretty_date = '';
-      pretty_date = start_pretty[0] + ' - ' + end_pretty;
+      pretty_date = start_pretty[2] + ' - ' + end_pretty[2] + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
       return pretty_date;
     }
   }, {
@@ -1352,7 +1351,6 @@ var EventReducer = function EventReducer() {
       return action.events.events;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
-      console.log("bizim action budur", action);
       newState[action.event.event.id] = action.event.event;
       return newState;
 

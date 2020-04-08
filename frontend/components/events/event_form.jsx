@@ -42,7 +42,6 @@ class EventForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const event = Object.assign({}, this.state);
-        console.log('event', event);
         this.props.submitEvent(event);
         this.props.closeModal();
     }
@@ -73,7 +72,7 @@ class EventForm extends React.Component {
                         <input 
                             type="date" 
                             className='start-date' 
-                            value={this.state.start_date}
+                            value={this.state.start_date} 
                             onChange={this.update('start_date')} />
                         <input 
                             type="date" 

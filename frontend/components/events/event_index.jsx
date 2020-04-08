@@ -8,6 +8,9 @@ class EventIndexItem extends React.Component {
 
     getPrettyDate(event){
     
+        let monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
         let ms_start = Date.parse(event.start_date);
         let date_start = new Date(ms_start);
         let start_pretty = date_start.toLocaleDateString();
@@ -17,7 +20,7 @@ class EventIndexItem extends React.Component {
         let end_pretty = date_end.toLocaleDateString();
 
         let pretty_date = ''
-        pretty_date = start_pretty[0] + ' - ' + end_pretty
+        pretty_date = start_pretty[2] + ' - ' + end_pretty[2] + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
         return pretty_date
     }
 
