@@ -59,9 +59,9 @@ class EventIndex extends React.Component {
                     <Link to={"/"} className="home-link" id='white'>Questo</Link>                    
                     <Link to={'/'} className='logout' onClick={this.props.logout}>Log out</Link>
                 </nav>
-                <span className='events-title'>
+                <div className='events-title'>
                     <p>Events</p>
-                </span>
+                </div>
                 <div className='button-line'>
                     <button className='event-create-button' onClick={() => openModal('create')} >Create Event</button>
                 </div>

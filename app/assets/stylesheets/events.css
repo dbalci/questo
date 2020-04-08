@@ -45,6 +45,7 @@ p{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin: 10px 35px 10px 5px;
 }
 
 .event-create-button{

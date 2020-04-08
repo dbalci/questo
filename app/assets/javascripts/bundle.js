@@ -642,7 +642,7 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
         to: '/',
         className: "logout",
         onClick: this.props.logout
-      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-line"
@@ -808,7 +808,7 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
         to: "/events",
         className: "demo",
         onClick: this.handleDemo
-      }, "Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, "Demo Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/login",
         className: "header-login"
       }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
