@@ -55,12 +55,16 @@ class EventIndex extends React.Component {
     };
 
     render() {
-        let { events, deleteEvent, createEvent, openModal } = this.props
+        let { events, deleteEvent, createEvent, openModal, user } = this.props
         return (
             <div className='events'>
+
                 <nav className='events-nav'>
-                    <Link to={"/"} className="home-link" id='white'>Questo</Link>                    
-                    <Link to={'/'} className='logout' onClick={this.props.logout}>Log out</Link>
+                    <Link to={"/"} className="home-link" id='white'>Questo</Link>
+                    <div className='greading-and-logout'>
+                        <div className='greading'>Hello {user.name} </div>
+                        <Link to={'/'} className='logout' onClick={this.props.logout}>Log out</Link>
+                    </div>
                 </nav>
                 <div className='events-title'>
                     <p>Events</p>

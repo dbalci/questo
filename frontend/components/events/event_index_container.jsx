@@ -5,8 +5,10 @@ import EventIndex from './event_index';
 import { openModal } from '../../actions/modal_actions'
 
 const mstp = (state) => { 
+    console.log('state', state)
     return {
-        events: Object.values(state.events) 
+        events: Object.values(state.events),
+        user: state.session
     }
 };
 

@@ -628,7 +628,8 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           events = _this$props2.events,
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent,
-          openModal = _this$props2.openModal;
+          openModal = _this$props2.openModal,
+          user = _this$props2.user;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -637,11 +638,15 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
         to: "/",
         className: "home-link",
         id: "white"
-      }, "Questo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Questo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "greading-and-logout"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "greading"
+      }, "Hello ", user.name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/',
         className: "logout",
         onClick: this.props.logout
-      }, "Log out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "button-line"
@@ -691,8 +696,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state) {
+  console.log('state', state);
   return {
-    events: Object.values(state.events)
+    events: Object.values(state.events),
+    user: state.session
   };
 };
 
@@ -1482,7 +1489,9 @@ var SessionReducer = function SessionReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return {
-        id: action.currentUser.id
+        id: action.currentUser.id,
+        name: action.currentUser.name,
+        lastname: action.currentUser.lastname
       };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
