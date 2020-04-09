@@ -1,7 +1,7 @@
 class Api::QuestionsController < ApplicationController
 
     def index
-        @questions = Question.all
+        @questions = Question.where(event_id: params[:event_id])
     end
 
     def show

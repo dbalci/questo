@@ -5,12 +5,3 @@ json.events do
         end
     end
 end
-
-# { 
-#     1: { 
-#         title: 'bir'
-#     },
-#     2: { 
-#         title: 'iki'
-#     }
-# }
