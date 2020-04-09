@@ -569,7 +569,14 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       var date_end = new Date(ms_end);
       var end_pretty = date_end.toLocaleDateString();
       var pretty_date = '';
-      pretty_date = start_pretty[2] + ' - ' + end_pretty[2] + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+      var day = start_pretty.split('/')[1];
+
+      if (day > 10) {
+        pretty_date = start_pretty.slice(2, 4) + ' - ' + end_pretty.slice(2, 4) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+      } else {
+        pretty_date = start_pretty.slice(2, 3) + ' - ' + end_pretty.slice(2, 3) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+      }
+
       return pretty_date;
     }
   }, {

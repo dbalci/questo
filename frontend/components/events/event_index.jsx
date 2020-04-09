@@ -14,13 +14,19 @@ class EventIndexItem extends React.Component {
         let ms_start = Date.parse(event.start_date);
         let date_start = new Date(ms_start);
         let start_pretty = date_start.toLocaleDateString();
-
+       
         let ms_end = Date.parse(event.end_date);
         let date_end = new Date(ms_end);
         let end_pretty = date_end.toLocaleDateString();
 
         let pretty_date = ''
-        pretty_date = start_pretty[2] + ' - ' + end_pretty[2] + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+    
+        let day = start_pretty.split('/')[1];
+        if (day > 10) {
+            pretty_date = start_pretty.slice(2,4) + ' - ' + end_pretty.slice(2,4) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+        }else{
+            pretty_date = start_pretty.slice(2,3) + ' - ' + end_pretty.slice(2,3) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
+        }    
         return pretty_date
     }
 
