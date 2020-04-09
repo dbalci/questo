@@ -15,6 +15,16 @@
     color: aliceblue;
 }
 
+.home-link-events{
+    color: white;
+    display: flex;
+    text-decoration: none;
+    padding: 0 20px;
+    margin: 80px;
+    font-size: 35px;
+    font-weight: bolder; 
+}
+
 .greading-and-logout{
     display: flex;
     align-items: center
