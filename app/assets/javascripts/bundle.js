@@ -803,8 +803,8 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
     value: function handleDemo(e) {
       e.preventDefault();
       var demo = {
-        email: 'email',
-        password: 'password'
+        email: 'Demo@email',
+        password: 'passwordmuacaba?'
       };
       this.props.processForm(demo).then(this.props.history.push('/events'));
     }

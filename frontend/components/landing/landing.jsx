@@ -25,8 +25,8 @@ class LandingPage extends React.Component {
         e.preventDefault();
 
         const demo = {
-            email: 'email',
-            password: 'password'
+            email: 'Demo@email',
+            password: 'passwordmuacaba?'
         }
 
         this.props.processForm(demo).then(this.props.history.push('/events'));
