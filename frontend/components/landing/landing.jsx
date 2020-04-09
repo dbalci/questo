@@ -43,6 +43,12 @@ class LandingPage extends React.Component {
                         <Link to="/signup" className="header-signup">Sign Up</Link>
                     </div>
                 </nav>
+                <div className='input-container'>
+                    <div className='input-box'>
+                        <input type="text" placeholder='Enter event code' />
+                    </div>
+                    <button>Join</button>
+                </div>
             </div>
         )
     }

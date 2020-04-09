@@ -828,7 +828,14 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
       }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/signup",
         className: "header-signup"
-      }, "Sign Up"))));
+      }, "Sign Up"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "Enter event code"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Join")));
     }
   }]);
 
