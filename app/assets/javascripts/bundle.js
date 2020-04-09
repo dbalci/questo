@@ -629,7 +629,8 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           deleteEvent = _this$props2.deleteEvent,
           createEvent = _this$props2.createEvent,
           openModal = _this$props2.openModal,
-          user = _this$props2.user;
+          user = _this$props2.user,
+          logout = _this$props2.logout;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -645,7 +646,7 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
       }, "Hello ", user.name, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: '/',
         className: "logout",
-        onClick: this.props.logout
+        onClick: logout
       }, "Log out"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Events")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
