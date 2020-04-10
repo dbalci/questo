@@ -57,7 +57,7 @@ class EventIndex extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchEvents()
+        this.props.fetchUserEvents()
     };
 
     render() {
@@ -87,6 +87,6 @@ class EventIndex extends React.Component {
             </div>
         )
     };
-};
+}
 
 export default EventIndex;

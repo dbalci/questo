@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
-import { fetchEvents, deleteEvent, createEvent } from '../../actions/event_actions';
+import { fetchUserEvents, deleteEvent, createEvent } from '../../actions/event_actions';
 import { logout } from '../../actions/session_actions'
 import EventIndex from './event_index';
 import { openModal } from '../../actions/modal_actions'
 
 const mstp = (state) => { 
-    console.log('state', state)
     return {
         events: Object.values(state.events),
         user: state.session
@@ -13,7 +12,7 @@ const mstp = (state) => {
 };
 
 const mdtp = (dispatch) => ({
-    fetchEvents: () => dispatch(fetchEvents()),
+    fetchUserEvents: (userId) => dispatch(fetchUserEvents(userId)),
     deleteEvent: (eventId) => dispatch(deleteEvent(eventId)),
     createEvent: (event) => dispatch(createEvent(event)),
     logout: (user) => dispatch(logout(user)),

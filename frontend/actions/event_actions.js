@@ -23,8 +23,8 @@ const removeEvent = (eventId) => {
     }
 }
 
-export const fetchEvents = () => dispatch => {
-    return EventAPIUtil.fetchEvents()
+export const fetchUserEvents = (userId) => dispatch => {
+    return EventAPIUtil.fetchUserEvents(userId)
         .then(events => dispatch(receiveEvents(events)))
 }
 

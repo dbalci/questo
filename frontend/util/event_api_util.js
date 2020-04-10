@@ -5,12 +5,12 @@ export const fetchEvents = () => {
     });
 };
 
-// export const fetchUserEvents = (user) => {
-//     return $.ajax({
-//         url: `/api/users/${user.id}/events`,
-//         method: 'GET'
-//     });
-// };
+export const fetchUserEvents = (userId) => {
+    return $.ajax({
+        url: `/api/user/${userId}/events`,
+        method: 'GET'
+    });
+};
 
 export const fetchEvent = (eventId) => {
     return $.ajax({
