@@ -7,6 +7,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { createHashHistory } from 'history' 
 
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
@@ -15,6 +16,11 @@ import EventsIndexContainer from './events/event_index_container';
 import EventShowContainer from './events/event_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ModalContainer from './modal/modal';
+import Navbar from './navbar/navbar';
+import NavbarContainer from './navbar/navbar_container';
+
+
+let history = createHashHistory();
 
 const App = () => (
     <div>
@@ -22,7 +28,8 @@ const App = () => (
        
         </header>
         <ModalContainer />
-        <Switch>
+        <NavbarContainer history={history} />
+        <Switch history={history}>
             <Route exact path='/' component={LandingPageContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />

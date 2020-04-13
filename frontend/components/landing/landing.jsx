@@ -35,14 +35,14 @@ class LandingPage extends React.Component {
     render(){
         return (
             <div>
-                <nav className="landing-nav">
+                {/* <nav className="landing-nav">
                     <Link to="/" className="header-home-link">Questo</Link>
                     <div className="header-account">
                         <Link to='/events' className='demo' onClick={this.handleDemo}>Demo Login</Link>
                         <Link to="/login" className="header-login">Log In</Link>
                         <Link to="/signup" className="header-signup">Sign Up</Link>
                     </div>
-                </nav>
+                </nav> */}
                 <div className='input-container'>
                     <div className='input-box'>
                         <input type="text" placeholder='Enter event code' />

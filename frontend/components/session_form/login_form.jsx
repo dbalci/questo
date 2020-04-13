@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    Route,
-    Redirect,
-    Switch,
-    Link,
-    HashRouter,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -24,11 +18,9 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
-
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
-
     }
 
     renderErrors() {

@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import { fetchUserEvents, deleteEvent, createEvent } from '../../actions/event_actions';
-import { logout } from '../../actions/session_actions'
+import { logout } from '../../actions/session_actions';
 import EventIndex from './event_index';
-import { openModal } from '../../actions/modal_actions'
+import { openModal } from '../../actions/modal_actions';
 
-const mstp = (state) => { 
+const mstp = (state) => {
+    console.log('state in event index container', state)
+    console.log('user in event index container', state.session)
     return {
         events: Object.values(state.events),
         user: state.session

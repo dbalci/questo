@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../navbar/navbar';
 
 class Question extends React.Component{
     constructor(props){
@@ -36,16 +37,6 @@ class EventShow extends React.Component {
         return (
 
             <div className='event-show-container'> 
-
-
-                <nav className='events-nav'>
-                    <Link to={"/"} className="home-link-events" id='white'>Questo</Link>
-                    <div className='greading-and-logout'>
-                        <div className='greading'>Hello {user.name} </div>
-                        <Link to={'/'} className='logout' onClick={logout}>Log out</Link>
-                    </div>
-                </nav>
-
                 <div className='event-questions'>
                     {
                         questions.map(question => <Question key={question.id} question={question}  />)
