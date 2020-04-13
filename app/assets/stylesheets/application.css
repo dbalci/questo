@@ -15,61 +15,8 @@
  */
 
 body {
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     margin: 0px;
     /* background-image: url("/images/back_ground.png"); */
     text-decoration: none;
-}
-
-.landing-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5rem;
-    line-height: 2.5;
-    font-size: 20px;
-}
-
-.header-home-link {
-    color: #4babd5;
-    display: flex;
-    text-decoration: none;
-    padding: 0 20px;
-    margin: 0px 80px 0px 80px;
-    font-size: 35px;
-    font-weight: bolder;
-}
-
-.header-account {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    padding: 10px;
-    margin-right: 80px;
-}
-
-.header-signup {
-    text-decoration: none;
-    display: flex;
-    background-color: #4babd5;
-    color: white;
-    border-radius: 10px;
-    width: 120px;
-    justify-content: center;    
-}
-
-.header-signup:hover {
-    background-color: black;
-}
-
-.header-login {
-    display: flex;
-    text-decoration: none;
-    margin: 0 20px;
-    color: #3a768f;
-}
-
-.demo{
-    text-decoration: none;
-    color: #3a768f;
 }

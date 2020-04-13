@@ -2,52 +2,6 @@
     display: block;
 }
 
-.events-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 5rem;
-    line-height: 2.5;
-    font-size: 20px;
-    background-color: #4babd5;
-    padding: 0 20px 0 20px;
-    font-weight: bolder;
-    color: aliceblue;
-}
-
-.home-link-events{
-    color: white;
-    display: flex;
-    text-decoration: none;
-    padding: 0 20px;
-    margin: 80px;
-    font-size: 35px;
-    font-weight: bolder; 
-}
-
-.greading-and-logout{
-    display: flex;
-    align-items: center
-}
-
-.greading{
-    padding-right: 35px;
-}
-
-.logout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: normal;
-    font-size: smaller;
-    width: 5rem;
-    height: 2rem;
-    border-radius: 1rem;
-    background-color: aliceblue;
-    color: #4babd5;
-}
-
 .events-title{
     height: 35px;
     background-color: aliceblue;

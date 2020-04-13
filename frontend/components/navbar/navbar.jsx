@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 function LoggedInControls(props){
     return (
-        <div className='greading-and-logout'>
-            <div className='greading'>Hello {props.user.name}</div>
-            <Link to={'/'} className='logout' onClick={props.logout}>Log out</Link>
+        <div id='greeting-and-logout'>
+            <div id='greeting'>Hello {props.user.name}</div>
+            <Link to={'/'} className='hoverable' onClick={props.logout}>Log out</Link>
         </div>
     )
 }
 
 function LoggedOutControls(props){
     return (
-        <div className="header-account">
-            <Link to='/events' className='demo' onClick={props.handleDemo}>Demo Login</Link>
-            <Link to="/login" className="header-login">Log In</Link>
-            <Link to="/signup" className="header-signup">Sign Up</Link>
+        <div className="login-signup">
+            <Link to='/events' className='hoverable' onClick={props.handleDemo}>Demo Login</Link>
+            <Link to="/login" className='hoverable' >Log In</Link>
+            <Link to="/signup" className='hoverable' >Sign Up</Link>
         </div>
     )
 }
@@ -35,13 +35,13 @@ class Navbar extends React.Component {
         }
         this.props.login(demo).then(this.props.history.push('/events'));
     }
-    
+
     render(){
         let { user, logout, login } = this.props
 
         return (
-            <nav className="events-nav">
-                <Link to="/" className="header-home-link">Questo</Link>
+            <nav className="navbar">
+                <Link to="/" id="home-link">Questo</Link>
                  {(user && user.id)
                     ? <LoggedInControls user={user} logout={logout} />
                     : <LoggedOutControls handleDemo={this.handleDemo} />
