@@ -11,7 +11,6 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal) {
         case 'create':
-             
             component = <CreateEventContainer />;
             break;
         default:

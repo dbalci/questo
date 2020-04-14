@@ -567,7 +567,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       var closeModal = this.props.closeModal;
       var handleSubmit = this.handleSubmit;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "create-event-box"
+        className: "modal-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         id: "white"
       }, "Create an event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -579,7 +579,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
         value: this.state.title,
         onChange: this.update('title')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-date"
+        id: "form-date"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
         className: "start-date",
@@ -595,15 +595,14 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
         className: "code",
         value: this.state.code
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttons",
-        id: "black"
+        id: "buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "create-event-modal-button",
+        className: "hoverable",
         onClick: function onClick() {
           return closeModal();
         }
       }, "CANCEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "create-event-modal-button",
+        className: "hoverable",
         onClick: handleSubmit
       }, "CREATE EVENT")));
     }
