@@ -9,9 +9,9 @@
     align-items: center;
 }
 
-p{
+.events-title p{
     font-weight: 900;
-    margin-left: 30px;
+    margin: 10%;
 }
 
 .button-line{
@@ -24,14 +24,13 @@ p{
 .event-create-button{
     display: flex;
     justify-content: center;
-    justify-items: center;
-    align-items: center;
     color: aliceblue;
-    width: 7rem;
-    height: 2rem;
+    width: 8em;
+    height: 2.5em;
     border-radius: 1rem;
-    background-color: #4babd5;
-    font-size: 14px;
+    background-color: #848FC1;
+    font-size: 1rem;
+    margin-right: 8%;
 }
 
 .each-event{

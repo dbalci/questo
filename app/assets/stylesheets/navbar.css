@@ -4,7 +4,7 @@
     align-items: center;
     height: 5rem;
     background-color: #848FC1;
-    padding-left: 10%;
+    padding-left: 9%;
     padding-right: 10%;
 }
 
@@ -33,4 +33,5 @@
 .navbar #home-link{
     color: #F9F6F5;
     font-size: 2.8em;
+    padding: none;
 }
