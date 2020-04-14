@@ -438,7 +438,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mstp = function mstp(state) {
   return {
-    userId: state.session.id || 32,
+    userId: state.session.id || 46,
     formType: 'create'
   };
 };
@@ -739,7 +739,6 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
           openModal = _this$props2.openModal,
           user = _this$props2.user,
           logout = _this$props2.logout;
-      console.log('props in index', this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -791,8 +790,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state) {
-  console.log('state in event index container', state);
-  console.log('user in event index container', state.session);
   return {
     events: Object.values(state.events),
     user: state.session

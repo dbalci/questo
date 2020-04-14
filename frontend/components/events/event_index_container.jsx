@@ -5,8 +5,6 @@ import EventIndex from './event_index';
 import { openModal } from '../../actions/modal_actions';
 
 const mstp = (state) => {
-    console.log('state in event index container', state)
-    console.log('user in event index container', state.session)
     return {
         events: Object.values(state.events),
         user: state.session

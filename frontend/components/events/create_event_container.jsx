@@ -5,7 +5,7 @@ import { closeModal } from '../../actions/modal_actions'
 
 const mstp = (state) => {
     return {
-        userId: state.session.id || 32,
+        userId: state.session.id || 46,
         formType: 'create'
     }
 };

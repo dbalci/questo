@@ -63,7 +63,6 @@ class EventIndex extends React.Component {
 
     render() {
         let { events, deleteEvent, createEvent, openModal, user, logout } = this.props
-        console.log('props in index', this.props)
         return (
             <div className='events'>
                 <div className='events-title'>
