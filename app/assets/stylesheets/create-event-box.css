@@ -27,6 +27,10 @@
   width: 85%;
 }
 
+.modal-box h1{
+  color: #F9F6F5;
+}
+
 #buttons{
   display: flex;
   justify-content: center;
@@ -34,11 +38,13 @@
 
 button.hoverable{
   font-family: comfortaa;
-  background-color: rgb(153, 165, 221);
+  background-color: #F9F6F5;
   border: 1px solid black;
   border-radius: 6px;
   padding: 0.6em;
   margin-right: 1em;
+  box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+
 }
 
 button.hoverable:hover{

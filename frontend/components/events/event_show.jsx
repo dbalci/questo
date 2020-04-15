@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
+import { openModal } from '../../actions/modal_actions';
 
 class Question extends React.Component{
     constructor(props){
@@ -12,6 +13,7 @@ class Question extends React.Component{
         return (
             <div className='each-question'>
                 {question.body}
+                {question.vote}
             </div>
         )
     }
@@ -37,10 +39,17 @@ class EventShow extends React.Component {
         return (
 
             <div className='event-show-container'> 
+
+                <div id='create-question'>
+                    <input type="text" maxLength='200' />
+                </div>
                 <div className='event-questions'>
                     {
                         questions.map(question => <Question key={question.id} question={question}  />)
                     }
+                </div>
+                <div>
+                    <button id='ask' onClick={()=> openModal('ask')}>Ask</button>
                 </div>
             </div>
         )
