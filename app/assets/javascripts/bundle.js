@@ -832,8 +832,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _navbar_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/navbar */ "./frontend/components/navbar/navbar.jsx");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -856,7 +855,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var Question = /*#__PURE__*/function (_React$Component) {
   _inherits(Question, _React$Component);
 
@@ -869,10 +867,20 @@ var Question = /*#__PURE__*/function (_React$Component) {
   _createClass(Question, [{
     key: "render",
     value: function render() {
-      var question = this.props.question;
+      var _this$props = this.props,
+          question = _this$props.question,
+          user = _this$props.user;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"
-      }, question.body, question.vote);
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "qu-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "qu-username"
+      }, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "qu-created-at"
+      }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "qu-body"
+      }, question.body));
     }
   }]);
 
@@ -894,13 +902,16 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
       this.props.fetchQuestionsForEvent(this.props.event.id);
     }
   }, {
+    key: "handleCreateQuestion",
+    value: function handleCreateQuestion() {}
+  }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          user = _this$props.user,
-          createQuestion = _this$props.createQuestion,
-          deleteQuestion = _this$props.deleteQuestion,
-          logout = _this$props.logout;
+      var _this$props2 = this.props,
+          user = _this$props2.user,
+          createQuestion = _this$props2.createQuestion,
+          deleteQuestion = _this$props2.deleteQuestion,
+          logout = _this$props2.logout;
       var questions = [];
 
       if (this.props.questions !== undefined && this.props.questions.questions) {
@@ -909,24 +920,32 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-show-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "create-question"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        type: "text",
+        rows: "4",
+        cols: "50",
+        maxLength: "200",
+        className: "question-body"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "name-submit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        maxLength: "200"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "event-questions"
+        placeholder: "Your name(optional)"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "ask"
+      }, "Ask"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "space"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "questions-list"
       }, questions.map(function (question) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Question, {
           key: question.id,
-          question: question
+          question: question,
+          user: user
         });
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "ask",
-        onClick: function onClick() {
-          return Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])('ask');
-        }
-      }, "Ask")));
+      })));
     }
   }]);
 
@@ -950,6 +969,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_question_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/question_action */ "./frontend/actions/question_action.js");
 /* harmony import */ var _event_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./event_show */ "./frontend/components/events/event_show.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 

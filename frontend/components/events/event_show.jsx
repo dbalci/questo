@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../navbar/navbar';
 import { openModal } from '../../actions/modal_actions';
 
 class Question extends React.Component{
@@ -9,11 +8,21 @@ class Question extends React.Component{
     }
 
     render() {
-        let { question } = this.props;
+        let { question, user } = this.props;
+
         return (
             <div className='each-question'>
-                {question.body}
-                {question.vote}
+                <div className='qu-info'>
+                    <div className='qu-username'>
+                        {user.name}
+                    </div>
+                    <div className='qu-created-at'>
+                        {question.created_at}
+                    </div>
+                </div>
+                <div className='qu-body'>
+                    {question.body}
+                </div>
             </div>
         )
     }
@@ -29,6 +38,10 @@ class EventShow extends React.Component {
         this.props.fetchQuestionsForEvent(this.props.event.id);
     }
 
+    handleCreateQuestion(){
+
+    }
+    
     render(){
         let { user, createQuestion, deleteQuestion, logout } = this.props
         let questions = [];
@@ -37,20 +50,30 @@ class EventShow extends React.Component {
         }
      
         return (
-
             <div className='event-show-container'> 
 
+                <p>Ask the speaker</p>
                 <div id='create-question'>
-                    <input type="text" maxLength='200' />
+                    <textarea 
+                        type='text'
+                        rows='4'
+                        cols='50'
+                        maxLength='200'
+                        className='question-body'
+
+                    ></textarea>
+                    <div id='name-submit' >
+                        <input type="text" placeholder='Your name(optional)'/>
+                        <button id='ask' >Ask</button>
+                    </div>
                 </div>
-                <div className='event-questions'>
+                <span id='space'></span>
+                <div className='questions-list'>
                     {
-                        questions.map(question => <Question key={question.id} question={question}  />)
+                        questions.map(question => <Question key={question.id} question={question}  user={user} />)
                     }
                 </div>
-                <div>
-                    <button id='ask' onClick={()=> openModal('ask')}>Ask</button>
-                </div>
+
             </div>
         )
     }

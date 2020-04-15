@@ -53,6 +53,9 @@ button.hoverable:hover{
   border-radius: 9px;
   background-color: rgb(106, 115, 153);
 }
+button.hoverable:focus{
+  outline: none;
+}
 
 #form-date {
   display: flex;

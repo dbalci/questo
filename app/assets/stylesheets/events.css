@@ -33,6 +33,10 @@
     margin-right: 8%;
 }
 
+.event-create-button:hover{
+    background-color: rgb(106, 115, 153);
+}
+
 .each-event{
     display: flex;
     width: 80%;

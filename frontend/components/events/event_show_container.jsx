@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchQuestionsForEvent, deleteQuestion, createQuestion } from '../../actions/question_action';
 import EventShow from './event_show';
 import { logout } from '../../actions/session_actions';
-
+import Question from './event_show'
 
 const mstp = (state, ownProps) => {
     return {

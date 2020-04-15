@@ -16,9 +16,13 @@
 
 body {
     font-family: 'Comfortaa', cursive;
-
-    /* font-family: 'Roboto', sans-serif; */
     margin: 0px;
     /* background-image: url("/images/back_ground.png"); */
+}
+
+body *:focus{
+    outline: none;
+}
+body *{
     text-decoration: none;
 }

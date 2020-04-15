@@ -24,7 +24,7 @@ event1 = Event.create(title: 'first', start_date: '07/07/07', end_date: '09/09/0
 event2 = Event.create(title: 'second', start_date: '07/08/07', end_date: '09/09/07', code: '#DER', is_ended: true , user_id: user1.id)
 event3 = Event.create(title: 'third', start_date: '07/09/07', end_date: '09/10/07', code: '#DET', is_ended: true , user_id: user1.id)
 
-question1 = Question.create!( body: 'question 1', user_id: user1.id, event_id: event1.id, answered: true)
-question2 = Question.create!( body: 'question 2', user_id: user1.id, event_id: event1.id, answered: true)
+question1 = Question.create!( body: 'Lorem ipsum dolor sit amet, consectetuer adipiscin', user_id: user1.id, event_id: event1.id, answered: true)
+question2 = Question.create!( body: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu', user_id: user1.id, event_id: event1.id, answered: true)
 question3 = Question.create!( body: 'question 3', user_id: user1.id, event_id: event1.id, answered: true)
 
