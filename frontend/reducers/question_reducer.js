@@ -11,11 +11,12 @@ const QuestionReducer = (oldState = {}, action) => {
     switch (action.type) {
         case RECEIVE_QUESTIONS:
             newState.questions = action.questions.questions;
-            return newState
+            return newState;
 
         case RECEIVE_QUESTION:
-            newState[action.events.eventId.question.question.id] = action.question.question
-            return newState
+            let q = action.question.question;
+            newState.questions[q.id] = q;
+            return newState;
 
         case REMOVE_QUESTION:
             delete newState[action.questionId]

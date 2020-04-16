@@ -833,6 +833,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -891,9 +893,19 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
   _inherits(EventShow, _React$Component2);
 
   function EventShow(props) {
+    var _this;
+
     _classCallCheck(this, EventShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EventShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventShow).call(this, props));
+    _this.handleCreateQuestion = _this.handleCreateQuestion.bind(_assertThisInitialized(_this));
+    _this.state = {
+      body: '',
+      user_id: props.user.id,
+      event_id: props.event.id,
+      answered: false
+    };
+    return _this;
   }
 
   _createClass(EventShow, [{
@@ -903,7 +915,26 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     }
   }, {
     key: "handleCreateQuestion",
-    value: function handleCreateQuestion() {}
+    value: function handleCreateQuestion(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var question = Object.assign({}, this.state);
+      this.props.createQuestion(question).then(function () {
+        _this2.setState({
+          'body': ''
+        });
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
   }, {
     key: "render",
     value: function render() {
@@ -918,6 +949,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         questions = Object.values(this.props.questions.questions);
       }
 
+      var handleCreateQuestion = this.handleCreateQuestion;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-show-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -927,14 +959,14 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         rows: "4",
         cols: "50",
         maxLength: "200",
+        value: this.state.body,
+        onChange: this.update('body'),
         className: "question-body"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "name-submit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "Your name(optional)"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "ask"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Asking as ", user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "ask",
+        onClick: handleCreateQuestion
       }, "Ask"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "space"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -974,7 +1006,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var mstp = function mstp(state, ownProps) {
   return {
     event: state.events[ownProps.match.params.eventId],
@@ -993,9 +1024,6 @@ var mdtp = function mdtp(dispatch) {
     },
     deleteQuestion: function deleteQuestion(questionId) {
       return dispatch(Object(_actions_question_action__WEBPACK_IMPORTED_MODULE_1__["deleteQuestion"])(questionId));
-    },
-    logout: function logout(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["logout"])(user));
     }
   };
 };
@@ -1832,7 +1860,8 @@ var QuestionReducer = function QuestionReducer() {
       return newState;
 
     case _actions_question_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_QUESTION"]:
-      newState[action.events.eventId.question.question.id] = action.question.question;
+      var q = action.question.question;
+      newState.questions[q.id] = q;
       return newState;
 
     case _actions_question_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_QUESTION"]:

@@ -42,6 +42,6 @@ class Api::QuestionsController < ApplicationController
     private
 
     def question_params
-        params.require(:question).permit(:body, :event_id, :user_id, :answered)
+        params.require(:question).permit(:body, :event_id, :user_id, :answered, :created_at)
     end
 end

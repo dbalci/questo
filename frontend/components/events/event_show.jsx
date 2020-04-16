@@ -32,23 +32,40 @@ class Question extends React.Component{
 class EventShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleCreateQuestion= this.handleCreateQuestion.bind(this);
+        this.state={
+            body: '',
+            user_id: props.user.id,
+            event_id: props.event.id,
+            answered: false, 
+        }
     }
 
     componentDidMount(){
         this.props.fetchQuestionsForEvent(this.props.event.id);
     }
 
-    handleCreateQuestion(){
-
+    handleCreateQuestion(e){
+        e.preventDefault();
+        let question = Object.assign({}, this.state);
+        this.props.createQuestion(question).then(() => {
+            this.setState({'body' :''});
+        })
     }
     
+    update(field){
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
+    }
+
     render(){
         let { user, createQuestion, deleteQuestion, logout } = this.props
         let questions = [];
         if (this.props.questions !== undefined && this.props.questions.questions) {
             questions = Object.values(this.props.questions.questions);
         }
-     
+        let handleCreateQuestion = this.handleCreateQuestion;
         return (
             <div className='event-show-container'> 
 
@@ -59,12 +76,13 @@ class EventShow extends React.Component {
                         rows='4'
                         cols='50'
                         maxLength='200'
-                        className='question-body'
-
-                    ></textarea>
+                        value={this.state.body}
+                        onChange={this.update('body')}
+                        className='question-body'>
+                    </textarea>
                     <div id='name-submit' >
-                        <input type="text" placeholder='Your name(optional)'/>
-                        <button id='ask' >Ask</button>
+                        <p>Asking as {user.name}</p>
+                        <button id='ask' onClick={handleCreateQuestion}>Ask</button>
                     </div>
                 </div>
                 <span id='space'></span>
