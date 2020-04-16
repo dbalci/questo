@@ -19,7 +19,7 @@ const QuestionReducer = (oldState = {}, action) => {
             return newState;
 
         case REMOVE_QUESTION:
-            delete newState[action.questionId]
+            delete newState.questions[action.questionId]
             return newState;
 
         default:

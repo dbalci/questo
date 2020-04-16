@@ -1239,7 +1239,7 @@ function LoggedInControls(props) {
 
 function LoggedOutControls(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "login-signup"
+    className: "login-signup-navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/events",
     className: "hoverable",
@@ -1871,7 +1871,7 @@ var QuestionReducer = function QuestionReducer() {
       return newState;
 
     case _actions_question_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_QUESTION"]:
-      delete newState[action.questionId];
+      delete newState.questions[action.questionId];
       return newState;
 
     default:

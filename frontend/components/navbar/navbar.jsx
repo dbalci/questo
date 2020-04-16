@@ -12,7 +12,7 @@ function LoggedInControls(props){
 
 function LoggedOutControls(props){
     return (
-        <div className="login-signup">
+        <div className="login-signup-navbar">
             <Link to='/events' className='hoverable' onClick={props.handleDemo}>Demo Login</Link>
             <Link to="/login" className='hoverable' >Log In</Link>
             <Link to="/signup" className='hoverable' >Sign Up</Link>
