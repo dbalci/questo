@@ -871,7 +871,8 @@ var Question = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           question = _this$props.question,
-          user = _this$props.user;
+          user = _this$props.user,
+          deleteQuestion = _this$props.deleteQuestion;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -880,9 +881,14 @@ var Question = /*#__PURE__*/function (_React$Component) {
         className: "qu-username"
       }, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-created-at"
-      }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
-      }, question.body));
+      }, question.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "far fa-trash-alt",
+        onClick: function onClick() {
+          return deleteQuestion(question.id);
+        }
+      })));
     }
   }]);
 
@@ -941,8 +947,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
       var _this$props2 = this.props,
           user = _this$props2.user,
           createQuestion = _this$props2.createQuestion,
-          deleteQuestion = _this$props2.deleteQuestion,
-          logout = _this$props2.logout;
+          deleteQuestion = _this$props2.deleteQuestion;
       var questions = [];
 
       if (this.props.questions !== undefined && this.props.questions.questions) {
@@ -975,7 +980,8 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Question, {
           key: question.id,
           question: question,
-          user: user
+          user: user,
+          deleteQuestion: deleteQuestion
         });
       })));
     }

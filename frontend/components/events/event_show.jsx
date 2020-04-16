@@ -8,7 +8,7 @@ class Question extends React.Component{
     }
 
     render() {
-        let { question, user } = this.props;
+        let { question, user, deleteQuestion } = this.props;
 
         return (
             <div className='each-question'>
@@ -20,8 +20,11 @@ class Question extends React.Component{
                         {question.created_at}
                     </div>
                 </div>
-                <div className='qu-body'>
+                <div>
+                    <div className='qu-body'>
                     {question.body}
+                    </div>
+                    <i class="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
                 </div>
             </div>
         )
@@ -60,7 +63,7 @@ class EventShow extends React.Component {
     }
 
     render(){
-        let { user, createQuestion, deleteQuestion, logout } = this.props
+        let { user, createQuestion, deleteQuestion } = this.props
         let questions = [];
         if (this.props.questions !== undefined && this.props.questions.questions) {
             questions = Object.values(this.props.questions.questions);
@@ -88,7 +91,12 @@ class EventShow extends React.Component {
                 <span id='space'></span>
                 <div className='questions-list'>
                     {
-                        questions.map(question => <Question key={question.id} question={question}  user={user} />)
+                        questions.map(question => <Question 
+                                                        key={question.id} 
+                                                        question={question} 
+                                                        user={user} 
+                                                        deleteQuestion={deleteQuestion}
+                                        />)
                     }
                 </div>
 

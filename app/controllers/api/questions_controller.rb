@@ -18,13 +18,10 @@ class Api::QuestionsController < ApplicationController
     end
 
     def destroy
-        @question = Question.find_by(params[:id])
-        if @question
-            @question.destroy
-            render :show
-        else
-            render ['Could not find the question']
-        end
+        @question = Question.find(params[:id])
+        @question.destroy
+        render :show
+        
     end
 
 
