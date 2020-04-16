@@ -5,6 +5,7 @@ function LoggedInControls(props){
     return (
         <div id='greeting-and-logout'>
             <div id='greeting'>Hello {props.user.name}</div>
+            <Link to={'/events'}>Events</Link>
             <Link to={'/'} className='hoverable' onClick={props.logout}>Log out</Link>
         </div>
     )
