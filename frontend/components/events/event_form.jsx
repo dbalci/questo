@@ -59,7 +59,7 @@ class EventForm extends React.Component {
         let handleSubmit = this.handleSubmit;
 
         return(
-            <div className='modal-box'>
+            <div className='modal-box-form'>
                 <h1 id='white'>Create an event</h1>
                 <form className='create-event-form'>
                     <input 
@@ -68,26 +68,25 @@ class EventForm extends React.Component {
                         placeholder='Event name'
                         value={this.state.title}
                         onChange={this.update('title')}/>
-                    <div id='form-date'>
-                        <input 
-                            type="date" 
-                            className='start-date' 
-                            value={this.state.start_date} 
-                            onChange={this.update('start_date')} />
-                        <input 
-                            type="date" 
-                            className='end-date' 
-                            value={this.state.end_date} 
-                            onChange={this.update('end_date')} />
+                    <div id='form-date'>Date: 
+                    <br/>
+                            <input 
+                                type="date" 
+                                className='start-date' 
+                                value={this.state.start_date} 
+                                onChange={this.update('start_date')} />
+                            <input 
+                                type="date" 
+                                className='end-date' 
+                                value={this.state.end_date} 
+                                onChange={this.update('end_date')} />
                     </div>
-                    <input 
-                        type="text" 
-                        className="code"
-                        value={this.state.code} />
+                    <div className='code' >Code: {this.state.code}
+                    </div>
                 </form>
                 <div id='buttons' >
-                    <button className='hoverable' onClick={() => closeModal()} >CANCEL</button>
-                    <button className='hoverable' onClick={handleSubmit} >CREATE EVENT</button>
+                    <button className='hoverable' onClick={() => closeModal()} >Cancel</button>
+                    <button className='hoverable' onClick={handleSubmit} >Create Event</button>
                 </div>
             </div>
         )

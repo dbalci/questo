@@ -1,35 +1,64 @@
+
 .modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(210, 204, 204, 0.427);
-  z-index: 10;
+position: fixed;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+background: rgba(210, 204, 204, 0.427);
+z-index: 10;
 }
 
 .modal-box {
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 30em;
-  width: 30em;
+  height: 25em;
+  width: 28em;
+  padding: 1em;
   box-shadow: 0px 5px 10px 5px silver;
-  background: #848FC1;
+  border-radius: 8px;
+  background: rgba(252, 250, 250, 0.865);
+}
+
+.modal-box-form{
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+  background: rgba(252, 250, 250, 0.865);
+  width: 100%;
 }
 
-.modal-box *{
-  width: 85%;
+.create-event-form{
+  height: 30%;
+  width: 80%;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: small;
+  padding-left: 5em;
+  
 }
 
-.modal-box h1{
-  color: #F9F6F5;
+.event-name{
+  background-color: rgba(252, 250, 250, 0.865);
+  font-size: medium;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
+
+#white{
+  margin-block-end: 0;
+}
+
+.start-date, .end-date {
+  margin: 0.2em;
+  padding: 0.2em;
+}
+
 
 #buttons{
   display: flex;
@@ -38,41 +67,17 @@
 
 button.hoverable{
   font-family: comfortaa;
-  background-color: #F9F6F5;
-  border: 1px solid black;
-  border-radius: 6px;
   padding: 0.6em;
   margin-right: 1em;
-  box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
-
+  display: flex;
+  justify-content: center;
+  border-radius: 0.6rem;
+  background-color: #848FC1;
+  font-size: smaller;
 }
 
 button.hoverable:hover{
   border: none;
-  color: black;
-  border-radius: 9px;
+  border-radius: 0.6em;
   background-color: rgb(106, 115, 153);
-}
-button.hoverable:focus{
-  outline: none;
-}
-
-#form-date {
-  display: flex;
-  flex-direction: row;
-  margin: 0.5em;
-  width: 20.8em;
-}
-
-.start-date, .end-date {
-  width: 46%;
-  margin: 1em;
-  padding: 0,5em;
-}
-
-.create-event-form [type='text'] {
-  background-color: rgba(252, 250, 250, 0.865);
-  padding: 0.7em;
-  border: none;
-  font-size: small;
 }

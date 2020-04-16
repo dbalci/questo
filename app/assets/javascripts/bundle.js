@@ -567,7 +567,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       var closeModal = this.props.closeModal;
       var handleSubmit = this.handleSubmit;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-box"
+        className: "modal-box-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         id: "white"
       }, "Create an event"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -580,7 +580,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update('title')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "form-date"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Date:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "date",
         className: "start-date",
         value: this.state.start_date,
@@ -590,21 +590,19 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
         className: "end-date",
         value: this.state.end_date,
         onChange: this.update('end_date')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "code",
-        value: this.state.code
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "code"
+      }, "Code: ", this.state.code)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "hoverable",
         onClick: function onClick() {
           return closeModal();
         }
-      }, "CANCEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "hoverable",
         onClick: handleSubmit
-      }, "CREATE EVENT")));
+      }, "Create Event")));
     }
   }]);
 
@@ -1231,6 +1229,8 @@ function LoggedInControls(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "greeting"
   }, "Hello ", props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: '/events'
+  }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: '/',
     className: "hoverable",
     onClick: props.logout
