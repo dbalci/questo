@@ -945,7 +945,8 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
       var _this$props2 = this.props,
           user = _this$props2.user,
           createQuestion = _this$props2.createQuestion,
-          deleteQuestion = _this$props2.deleteQuestion;
+          deleteQuestion = _this$props2.deleteQuestion,
+          event = _this$props2.event;
       var questions = [];
 
       if (this.props.questions !== undefined && this.props.questions.questions) {
@@ -955,7 +956,11 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
       var handleCreateQuestion = this.handleCreateQuestion;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "event-show-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "event-title"
+      }, "Event name: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "ask-question-title"
+      }, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "create-question"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
@@ -967,7 +972,9 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         className: "question-body"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "name-submit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Asking as ", user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "askind-as"
+      }, "Asking as ", user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "ask",
         onClick: handleCreateQuestion
       }, "Ask"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {

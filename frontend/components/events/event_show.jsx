@@ -63,7 +63,7 @@ class EventShow extends React.Component {
     }
 
     render(){
-        let { user, createQuestion, deleteQuestion } = this.props
+        let { user, createQuestion, deleteQuestion, event } = this.props
         let questions = [];
         if (this.props.questions !== undefined && this.props.questions.questions) {
             questions = Object.values(this.props.questions.questions);
@@ -71,8 +71,8 @@ class EventShow extends React.Component {
         let handleCreateQuestion = this.handleCreateQuestion;
         return (
             <div className='event-show-container'> 
-
-                <p>Ask the speaker</p>
+                <p id='event-title'>Event name: {event.title}</p>
+                <p id='ask-question-title'>Ask the speaker</p>
                 <div id='create-question'>
                     <textarea 
                         type='text'
@@ -84,7 +84,7 @@ class EventShow extends React.Component {
                         className='question-body'>
                     </textarea>
                     <div id='name-submit' >
-                        <p>Asking as {user.name}</p>
+                        <p id='askind-as'>Asking as {user.name}</p>
                         <button id='ask' onClick={handleCreateQuestion}>Ask</button>
                     </div>
                 </div>

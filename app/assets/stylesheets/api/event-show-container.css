@@ -1,16 +1,24 @@
 .event-show-container{
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
     width: 70%;
     margin-left: 15%;
+}
+
+#event-title{
+    background-color: aliceblue;
+    margin: 0;
+    font-size: larger;
+    border-radius: 0.6em;
+    padding-left: 1em;
+    padding: 0.3em;
 }
 
 #create-question{
     display: contents;
 }
 
-.event-show-container p{
+#ask-question-title, #askind-as{
     color: gray;
     margin: 3em 0 1em 0.5em;
 }
