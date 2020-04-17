@@ -8,13 +8,13 @@ class Question extends React.Component{
     }
 
     render() {
-        let { question, user, deleteQuestion } = this.props;
+        let { question, deleteQuestion } = this.props;
 
         return (
             <div className='each-question'>
                 <div className='qu-info'>
                     <div className='qu-username'>
-                        {user.name}
+                        {question.user.name}
                     </div>
                     <div className='qu-created-at'>
                         {question.created_at}

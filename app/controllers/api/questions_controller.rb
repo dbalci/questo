@@ -6,6 +6,9 @@ class Api::QuestionsController < ApplicationController
 
     def show
         @question = Question.find_by(params[:id])
+        # user = User.find_by(db_question.user_id)
+        # @question = db_question
+        # @question[:username] = user.name
     end
 
     def create

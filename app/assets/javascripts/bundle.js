@@ -869,7 +869,6 @@ var Question = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           question = _this$props.question,
-          user = _this$props.user,
           deleteQuestion = _this$props.deleteQuestion;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"
@@ -877,7 +876,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
         className: "qu-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-username"
-      }, user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, question.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-created-at"
       }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
