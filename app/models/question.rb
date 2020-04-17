@@ -2,7 +2,6 @@ class Question < ApplicationRecord
 
     validates :body, :user_id, :event_id, presence:true
     validates :answered, inclusion: { in: [ true, false ] }
-    validates :vote, presence:true, default:0
 
     belongs_to :event,
     foreign_key: :event_id,
