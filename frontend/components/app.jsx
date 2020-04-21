@@ -33,8 +33,8 @@ const App = () => (
             <Route exact path='/' component={LandingPageContainer} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            <Route exact path='/events' component={EventsIndexContainer} />
-            <Route exact path='/events/:eventId' component={EventShowContainer} />
+            <ProtectedRoute exact path='/events' component={EventsIndexContainer} />
+            <ProtectedRoute exact path='/events/:eventId' component={EventShowContainer} />
         </Switch>
     </div>
 );

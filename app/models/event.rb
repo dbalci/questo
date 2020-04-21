@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-    validates :title, :start_date, :end_date, :code, presence: true
+    validates :title, :start_date, :end_date, :code, :user_id, presence: true
     validates :code, uniqueness: true
     validates :code, length: { minimum: 4 }
     validates :is_ended, inclusion: { in: [ true, false ] }

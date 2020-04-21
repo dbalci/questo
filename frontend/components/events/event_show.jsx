@@ -38,14 +38,20 @@ class EventShow extends React.Component {
         this.handleCreateQuestion= this.handleCreateQuestion.bind(this);
         this.state={
             body: '',
-            user_id: props.user.id,
-            event_id: props.event.id,
             answered: false, 
+        }
+
+        if (props.event){
+            this.state.event_id = props.event.id;
+        }
+        if (props.user){
+            this.state.user_id = props.user.id;
         }
     }
 
     componentDidMount(){
-        this.props.fetchQuestionsForEvent(this.props.event.id);
+        this.props.fetchUserEvents();
+        this.props.fetchQuestionsForEvent(this.props.event_id);
     }
 
     handleCreateQuestion(e){
@@ -64,6 +70,10 @@ class EventShow extends React.Component {
 
     render(){
         let { user, createQuestion, deleteQuestion, event } = this.props
+        if (!event) {
+            return <h1>🧼</h1>
+        }
+
         let questions = [];
         if (this.props.questions !== undefined && this.props.questions.questions) {
             questions = Object.values(this.props.questions.questions);

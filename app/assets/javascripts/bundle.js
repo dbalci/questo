@@ -403,11 +403,11 @@ var App = function App() {
     exact: true,
     path: "/signup",
     component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
     path: "/events",
     component: _events_event_index_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_9__["ProtectedRoute"], {
     exact: true,
     path: "/events/:eventId",
     component: _events_event_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -904,17 +904,25 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     _this.handleCreateQuestion = _this.handleCreateQuestion.bind(_assertThisInitialized(_this));
     _this.state = {
       body: '',
-      user_id: props.user.id,
-      event_id: props.event.id,
       answered: false
     };
+
+    if (props.event) {
+      _this.state.event_id = props.event.id;
+    }
+
+    if (props.user) {
+      _this.state.user_id = props.user.id;
+    }
+
     return _this;
   }
 
   _createClass(EventShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchQuestionsForEvent(this.props.event.id);
+      this.props.fetchUserEvents();
+      this.props.fetchQuestionsForEvent(this.props.event_id);
     }
   }, {
     key: "handleCreateQuestion",
@@ -946,6 +954,11 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
           createQuestion = _this$props2.createQuestion,
           deleteQuestion = _this$props2.deleteQuestion,
           event = _this$props2.event;
+
+      if (!event) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\uD83E\uDDFC");
+      }
+
       var questions = [];
 
       if (this.props.questions !== undefined && this.props.questions.questions) {
@@ -1009,23 +1022,43 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_question_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/question_action */ "./frontend/actions/question_action.js");
-/* harmony import */ var _event_show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./event_show */ "./frontend/components/events/event_show.jsx");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_event_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/event_actions */ "./frontend/actions/event_actions.js");
+/* harmony import */ var _event_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./event_show */ "./frontend/components/events/event_show.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
 
 
 var mstp = function mstp(state, ownProps) {
-  return {
-    event: state.events[ownProps.match.params.eventId],
-    questions: state.questions,
-    user: state.session
-  };
+  var props = {}; // return {
+  //     event: state.events[ownProps.match.params.eventId],
+  //     questions: state.questions,
+  //     user: state.session
+  // }
+
+  if (state.events) {
+    props['event'] = state.events[ownProps.match.params.eventId];
+  }
+
+  if (state.questions) {
+    props['questions'] = state.questions;
+  }
+
+  if (state.session) {
+    props['user'] = state.session;
+  }
+
+  props.event_id = ownProps.match.params.eventId;
+  return props;
 };
 
 var mdtp = function mdtp(dispatch) {
   return {
+    fetchUserEvents: function fetchUserEvents(userId) {
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserEvents"])(userId));
+    },
     fetchQuestionsForEvent: function fetchQuestionsForEvent(eventId) {
       return dispatch(Object(_actions_question_action__WEBPACK_IMPORTED_MODULE_1__["fetchQuestionsForEvent"])(eventId));
     },
@@ -1038,7 +1071,7 @@ var mdtp = function mdtp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_event_show__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mstp, mdtp)(_event_show__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -1752,10 +1785,20 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('root');
-  var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    store: store
-  }), root);
+  var store;
+  $.ajax('/api/session').then(function (user) {
+    store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])({
+      "session": user
+    });
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      store: store
+    }), root);
+  }, function (err) {
+    var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      store: store
+    }), root);
+  });
 });
 
 /***/ }),
