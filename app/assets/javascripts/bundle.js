@@ -956,7 +956,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
           event = _this$props2.event;
 
       if (!event) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "\uD83E\uDDFC");
+        return "";
       }
 
       var questions = [];

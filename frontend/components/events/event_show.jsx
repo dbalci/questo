@@ -71,7 +71,7 @@ class EventShow extends React.Component {
     render(){
         let { user, createQuestion, deleteQuestion, event } = this.props
         if (!event) {
-            return <h1>🧼</h1>
+            return ""
         }
 
         let questions = [];
