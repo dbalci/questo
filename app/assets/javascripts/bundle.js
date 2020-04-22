@@ -702,7 +702,7 @@ var EventIndexItem = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "eed"
       }, this.getPrettyDate(event))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-trash-alt",
+        className: "far fa-trash-alt",
         onClick: function onClick() {
           return deleteEvent(event.id);
         }
@@ -881,7 +881,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
       }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
       }, question.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-trash-alt",
+        className: "far fa-trash-alt",
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }
@@ -1037,6 +1037,8 @@ var mstp = function mstp(state, ownProps) {
   //     questions: state.questions,
   //     user: state.session
   // }
+
+  console.log('state.events', state.events);
 
   if (state.events) {
     props['event'] = state.events[ownProps.match.params.eventId];

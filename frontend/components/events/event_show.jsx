@@ -24,7 +24,7 @@ class Question extends React.Component{
                     <div className='qu-body'>
                     {question.body}
                     </div>
-                    <i class="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                    <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
                 </div>
             </div>
         )

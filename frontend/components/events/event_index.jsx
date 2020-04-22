@@ -46,7 +46,7 @@ class EventIndexItem extends React.Component {
                         </div>
                     </ul>
                 </Link>
-                <i class="far fa-trash-alt" onClick={() => deleteEvent(event.id)}></i>
+                <i className="far fa-trash-alt" onClick={() => deleteEvent(event.id)}></i>
             </div>
         )
     }

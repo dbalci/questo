@@ -13,6 +13,7 @@ const mstp = (state, ownProps) => {
     //     user: state.session
     // }
 
+    console.log('state.events', state.events)
     if(state.events) {
         props['event'] = state.events[ownProps.match.params.eventId];
     }
