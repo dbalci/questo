@@ -38,12 +38,10 @@ class EventShow extends React.Component {
         this.handleCreateQuestion= this.handleCreateQuestion.bind(this);
         this.state={
             body: '',
-            answered: false, 
+            answered: false,
+            event_id: props.event_id
         }
-
-        if (props.event){
-            this.state.event_id = props.event.id;
-        }
+        
         if (props.user){
             this.state.user_id = props.user.id;
         }

@@ -7,13 +7,6 @@ import { logout } from '../../actions/session_actions';
 const mstp = (state, ownProps) => {
     let props = {};
 
-    // return {
-    //     event: state.events[ownProps.match.params.eventId],
-    //     questions: state.questions,
-    //     user: state.session
-    // }
-
-    console.log('state.events', state.events)
     if(state.events) {
         props['event'] = state.events[ownProps.match.params.eventId];
     }

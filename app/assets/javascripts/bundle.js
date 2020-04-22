@@ -904,12 +904,9 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     _this.handleCreateQuestion = _this.handleCreateQuestion.bind(_assertThisInitialized(_this));
     _this.state = {
       body: '',
-      answered: false
+      answered: false,
+      event_id: props.event_id
     };
-
-    if (props.event) {
-      _this.state.event_id = props.event.id;
-    }
 
     if (props.user) {
       _this.state.user_id = props.user.id;
@@ -1032,13 +1029,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state, ownProps) {
-  var props = {}; // return {
-  //     event: state.events[ownProps.match.params.eventId],
-  //     questions: state.questions,
-  //     user: state.session
-  // }
-
-  console.log('state.events', state.events);
+  var props = {};
 
   if (state.events) {
     props['event'] = state.events[ownProps.match.params.eventId];
