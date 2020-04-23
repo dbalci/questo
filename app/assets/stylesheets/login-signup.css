@@ -50,7 +50,7 @@ form {
     align-items: stretch
 }
 
-input[type='submit'] {
+.session-submit {
     display: flex;
     justify-content: center;
     color: aliceblue;
@@ -59,6 +59,12 @@ input[type='submit'] {
     border-radius: 1rem;
     background-color: #848FC1;
     font-size: 1rem;
+    margin-bottom: 0.3em;
+}
+
+.session-submit:hover{
+    border-radius: 1rem;
+    background-color: rgb(106, 115, 153);
 }
 
 .login-input {
@@ -83,3 +89,13 @@ input[type='submit'] {
 .password {
     width: 15rem;
 }
+
+/* a{
+    text-decoration: none;
+    justify-content: center;
+    color: #F9F6F5;
+    padding: 1vw;
+    font-size: 1em;
+}
+
+ */

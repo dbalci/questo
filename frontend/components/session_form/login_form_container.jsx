@@ -8,13 +8,12 @@ const mstp = ({ errors }) => {
     return {
         errors: errors.session,
         formType: 'login',
-        navLink: <Link to="/signup">sign up instead</Link>,
     };
 };
 
 const mdtp = dispatch => {
     return {
-        processForm: (user) => dispatch(login(user)),
+        login: (user) => dispatch(login(user)),
     };
 };
 

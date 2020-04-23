@@ -1244,9 +1244,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1273,10 +1273,6 @@ function LoggedOutControls(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "login-signup-navbar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/events",
-    className: "hoverable",
-    onClick: props.handleDemo
-  }, "Demo Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/login",
     className: "hoverable"
   }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1289,26 +1285,20 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
   function Navbar(props) {
-    var _this;
-
     _classCallCheck(this, Navbar);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
-    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
-    return _this;
-  }
+    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props)); // this.handleDemo = this.handleDemo.bind(this);
+  } // handleDemo(e) {
+  //     e.preventDefault();
+  //     const demo = {
+  //         email: 'Demo@email',
+  //         password: 'passwordmuacaba?'
+  //     }
+  //     this.props.login(demo).then(this.props.history.push('/events'));
+  // }
+
 
   _createClass(Navbar, [{
-    key: "handleDemo",
-    value: function handleDemo(e) {
-      e.preventDefault();
-      var demo = {
-        email: 'Demo@email',
-        password: 'passwordmuacaba?'
-      };
-      this.props.login(demo).then(this.props.history.push('/events'));
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -1453,6 +1443,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1470,7 +1461,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
+      this.props.login(user);
     }
   }, {
     key: "renderErrors",
@@ -1482,6 +1473,16 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
           key: "error-".concat(i)
         }, error);
       }));
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      e.preventDefault();
+      var demo = {
+        email: 'Demo@email',
+        password: 'passwordmuacaba?'
+      };
+      this.props.login(demo).then(this.props.history.push('/events'));
     }
   }, {
     key: "render",
@@ -1514,11 +1515,14 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         type: "password",
         value: this.state.password,
         onChange: this.update('password')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "session-submit",
         type: "submit",
         value: "Log in"
-      }))));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "session-submit",
+        onClick: this.handleDemo
+      }, "Demo Login"))));
     }
   }]);
 
@@ -1554,16 +1558,13 @@ var mstp = function mstp(_ref) {
   var errors = _ref.errors;
   return {
     errors: errors.session,
-    formType: 'login',
-    navLink: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-      to: "/signup"
-    }, "sign up instead")
+    formType: 'login'
   };
 };
 
 var mdtp = function mdtp(dispatch) {
   return {
-    processForm: function processForm(user) {
+    login: function login(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
     }
   };
