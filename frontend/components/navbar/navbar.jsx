@@ -26,7 +26,7 @@ class Navbar extends React.Component {
     }
 
     render(){
-        let { user, logout, login } = this.props
+        let { user, logout } = this.props
 
         return (
             <nav className="navbar">

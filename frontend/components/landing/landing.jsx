@@ -35,12 +35,12 @@ class LandingPage extends React.Component {
     render(){
         return (
             <div>
-                {/* <div className='input-container'>
+                <div className='input-container'>
                     <div className='input-box'>
                         <input type="text" placeholder='Enter event code' />
                     </div>
                     <button>Join</button>
-                </div> */}
+                </div>
             </div>
         )
     }
