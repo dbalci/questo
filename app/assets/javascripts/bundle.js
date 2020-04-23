@@ -1261,8 +1261,9 @@ function LoggedInControls(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "greeting"
   }, "Hello ", props.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: '/events'
-  }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: '/events',
+    className: "hoverable"
+  }, "My Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: '/',
     className: "hoverable",
     onClick: props.logout
@@ -1287,16 +1288,8 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
   function Navbar(props) {
     _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props)); // this.handleDemo = this.handleDemo.bind(this);
-  } // handleDemo(e) {
-  //     e.preventDefault();
-  //     const demo = {
-  //         email: 'Demo@email',
-  //         password: 'passwordmuacaba?'
-  //     }
-  //     this.props.login(demo).then(this.props.history.push('/events'));
-  // }
-
+    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
+  }
 
   _createClass(Navbar, [{
     key: "render",
