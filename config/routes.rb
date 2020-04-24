@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :questions, only: [:show, :create, :destroy] 
+    get 'eventCode/:code', to: 'events#query'
   end
 
 end

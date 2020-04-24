@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
+import { findEventByCode } from '../../actions/event_actions'
 
 const mstp = ({ errors }) => {
     return {
@@ -11,25 +12,31 @@ const mstp = ({ errors }) => {
 
 const mdtp = dispatch => {
     return {
-        processForm: (user) => dispatch(login(user)),
+        findEventByCode: (code) => dispatch(findEventByCode(code))
     };
 };
 
 class LandingPage extends React.Component {
     constructor(props){
-        super(props)
-        this.handleDemo = this.handleDemo.bind(this);
+        super(props);
+        this.state={
+            eventCode: ''
+        }
+        this.handleCode = this.handleCode.bind(this)
+    }
+
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
     }
     
-    handleDemo(e) {
-        e.preventDefault();
-
-        const demo = {
-            email: 'Demo@email',
-            password: 'passwordmuacaba?'
-        }
-
-        this.props.processForm(demo).then(this.props.history.push('/events'));
+    handleCode(e) {
+        const code = this.state.eventCode;
+        this.props.findEventByCode(code).then((response) => {
+            event = response.event;
+            this.props.history.push(`/events/${event.event.id}`);
+        })
     }
 
     render(){
@@ -37,9 +44,14 @@ class LandingPage extends React.Component {
             <div>
                 <div className='input-container'>
                     <div className='input-box'>
-                        <input type="text" placeholder='Enter event code' />
+                        <input 
+                            type="text" 
+                            placeholder='Enter event code'
+                            value={this.state.email}
+                            onChange={this.update('eventCode')}
+                        />
                     </div>
-                    <button>Join</button>
+                    <button onClick={this.handleCode}>Join</button>
                 </div>
             </div>
         )

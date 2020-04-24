@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
 
 class Question extends React.Component{
     constructor(props){
@@ -41,7 +40,7 @@ class EventShow extends React.Component {
             answered: false,
             event_id: props.event_id
         }
-        
+
         if (props.user){
             this.state.user_id = props.user.id;
         }
@@ -79,7 +78,7 @@ class EventShow extends React.Component {
         let handleCreateQuestion = this.handleCreateQuestion;
         return (
             <div className='event-show-container'> 
-                <p id='event-title'>Event name: {event.title}</p>
+                <p id='event-title'>Event: {event.code} {event.title}</p>
                 <p id='ask-question-title'>Ask the speaker</p>
                 <div id='create-question'>
                     <textarea 

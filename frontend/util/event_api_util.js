@@ -41,3 +41,11 @@ export const deleteEvent = (eventId) => {
         method: 'DELETE'
     });
 };
+
+export const findEventByCode = (code) => {
+    return $.ajax({
+        url: `/api/eventCode/${code}`,
+        method: 'GET',
+        data: { code }
+    })
+}

@@ -90,7 +90,7 @@
 /*!*******************************************!*\
   !*** ./frontend/actions/event_actions.js ***!
   \*******************************************/
-/*! exports provided: RECEIVE_EVENTS, RECEIVE_EVENT, REMOVE_EVENT, fetchUserEvents, fetchEvent, createEvent, updateEvent, deleteEvent */
+/*! exports provided: RECEIVE_EVENTS, RECEIVE_EVENT, REMOVE_EVENT, findEventByCode, fetchUserEvents, fetchEvent, createEvent, updateEvent, deleteEvent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EVENTS", function() { return RECEIVE_EVENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EVENT", function() { return RECEIVE_EVENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_EVENT", function() { return REMOVE_EVENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findEventByCode", function() { return findEventByCode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserEvents", function() { return fetchUserEvents; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchEvent", function() { return fetchEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
@@ -130,6 +131,13 @@ var removeEvent = function removeEvent(eventId) {
   };
 };
 
+var findEventByCode = function findEventByCode(code) {
+  return function (dispatch) {
+    return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["findEventByCode"](code).then(function (event) {
+      return dispatch(receiveEvent(event));
+    });
+  };
+};
 var fetchUserEvents = function fetchUserEvents(userId) {
   return function (dispatch) {
     return _util_event_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserEvents"](userId).then(function (events) {
@@ -830,7 +838,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -850,7 +857,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -967,7 +973,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         className: "event-show-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "event-title"
-      }, "Event name: ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Event: ", event.code, " ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "ask-question-title"
       }, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "create-question"
@@ -1082,7 +1088,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_event_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/event_actions */ "./frontend/actions/event_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1105,6 +1114,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mstp = function mstp(_ref) {
   var errors = _ref.errors;
   return {};
@@ -1112,8 +1122,8 @@ var mstp = function mstp(_ref) {
 
 var mdtp = function mdtp(dispatch) {
   return {
-    processForm: function processForm(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["login"])(user));
+    findEventByCode: function findEventByCode(code) {
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_4__["findEventByCode"])(code));
     }
   };
 };
@@ -1127,19 +1137,33 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, LandingPage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LandingPage).call(this, props));
-    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
+    _this.state = {
+      eventCode: ''
+    };
+    _this.handleCode = _this.handleCode.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(LandingPage, [{
-    key: "handleDemo",
-    value: function handleDemo(e) {
-      e.preventDefault();
-      var demo = {
-        email: 'Demo@email',
-        password: 'passwordmuacaba?'
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
       };
-      this.props.processForm(demo).then(this.props.history.push('/events'));
+    }
+  }, {
+    key: "handleCode",
+    value: function handleCode(e) {
+      var _this3 = this;
+
+      var code = this.state.eventCode;
+      this.props.findEventByCode(code).then(function (response) {
+        event = response.event;
+
+        _this3.props.history.push("/events/".concat(event.event.id));
+      });
     }
   }, {
     key: "render",
@@ -1150,8 +1174,12 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
         className: "input-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Enter event code"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Join")));
+        placeholder: "Enter event code",
+        value: this.state.email,
+        onChange: this.update('eventCode')
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleCode
+      }, "Join")));
     }
   }]);
 
@@ -2082,7 +2110,7 @@ var configureStore = function configureStore() {
 /*!*****************************************!*\
   !*** ./frontend/util/event_api_util.js ***!
   \*****************************************/
-/*! exports provided: fetchEvents, fetchUserEvents, fetchEvent, createEvent, updateEvent, deleteEvent */
+/*! exports provided: fetchEvents, fetchUserEvents, fetchEvent, createEvent, updateEvent, deleteEvent, findEventByCode */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2093,6 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateEvent", function() { return updateEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteEvent", function() { return deleteEvent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findEventByCode", function() { return findEventByCode; });
 var fetchEvents = function fetchEvents() {
   return $.ajax({
     url: "/api/events",
@@ -2133,6 +2162,15 @@ var deleteEvent = function deleteEvent(eventId) {
   return $.ajax({
     url: "/api/events/".concat(eventId),
     method: 'DELETE'
+  });
+};
+var findEventByCode = function findEventByCode(code) {
+  return $.ajax({
+    url: "/api/eventCode/".concat(code),
+    method: 'GET',
+    data: {
+      code: code
+    }
   });
 };
 

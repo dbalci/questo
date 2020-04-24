@@ -23,6 +23,11 @@ const removeEvent = (eventId) => {
     }
 }
 
+export const findEventByCode = (code) => dispatch => {
+    return EventAPIUtil.findEventByCode(code)
+        .then(event => dispatch(receiveEvent(event)))
+}
+
 export const fetchUserEvents = (userId) => dispatch => {
     return EventAPIUtil.fetchUserEvents(userId)
         .then(events => dispatch(receiveEvents(events)))

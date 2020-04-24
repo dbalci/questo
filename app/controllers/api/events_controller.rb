@@ -3,6 +3,11 @@ class Api::EventsController < ApplicationController
     @events = Event.all
   end
 
+  def query
+    @event = Event.where(code: params[:code]).first!()
+    render :show
+  end
+
   def show
     @event = Event.find(params[:id])
   end
