@@ -531,7 +531,7 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
       var alp = 'ABCDEFGHIJKLMNOPRSTUVYZXWQ0123456789';
       var code = '';
 
-      for (var i = 1; i < 4; i++) {
+      for (var i = 0; i < 5; i++) {
         var randIdx = Math.floor(Math.random() * alp.length);
         code += alp[randIdx];
       }
