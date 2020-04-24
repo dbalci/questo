@@ -18,8 +18,8 @@ class EventForm extends React.Component {
 
     getRandomCode(){
         const alp = 'ABCDEFGHIJKLMNOPRSTUVYZXWQ0123456789'
-        let code = '#'
-        for(let i = 0; i < 4; i++){
+        let code = ''
+        for(let i = 1; i < 4; i++){
             let randIdx = Math.floor(Math.random() * alp.length);
             code += alp[randIdx];
         }      

@@ -529,9 +529,9 @@ var EventForm = /*#__PURE__*/function (_React$Component) {
     key: "getRandomCode",
     value: function getRandomCode() {
       var alp = 'ABCDEFGHIJKLMNOPRSTUVYZXWQ0123456789';
-      var code = '#';
+      var code = '';
 
-      for (var i = 0; i < 4; i++) {
+      for (var i = 1; i < 4; i++) {
         var randIdx = Math.floor(Math.random() * alp.length);
         code += alp[randIdx];
       }
@@ -1086,9 +1086,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_event_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/event_actions */ "./frontend/actions/event_actions.js");
+/* harmony import */ var _actions_event_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/event_actions */ "./frontend/actions/event_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1113,8 +1111,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
 var mstp = function mstp(_ref) {
   var errors = _ref.errors;
   return {};
@@ -1123,7 +1119,7 @@ var mstp = function mstp(_ref) {
 var mdtp = function mdtp(dispatch) {
   return {
     findEventByCode: function findEventByCode(code) {
-      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_4__["findEventByCode"])(code));
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["findEventByCode"])(code));
     }
   };
 };
