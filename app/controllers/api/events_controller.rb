@@ -1,6 +1,7 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Event.all
+    @user = current_user()    
+    @events = Event.where(user_id: @user.id)
   end
 
   def query
