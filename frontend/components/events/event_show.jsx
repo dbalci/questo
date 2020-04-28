@@ -24,6 +24,7 @@ class Question extends React.Component{
                     {question.body}
                     </div>
                     <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                    <button>answer this question</button>
                 </div>
             </div>
         )
@@ -103,7 +104,7 @@ class EventShow extends React.Component {
                                                         question={question} 
                                                         user={user} 
                                                         deleteQuestion={deleteQuestion}
-                                        />)
+                                                    />)
                     }
                 </div>
 

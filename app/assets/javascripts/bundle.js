@@ -891,7 +891,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "answer this question")));
     }
   }]);
 
