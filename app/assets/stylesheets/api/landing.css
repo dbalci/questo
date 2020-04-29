@@ -1,0 +1,65 @@
+.landing-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#left-container{
+    width: 50%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 9rem;
+    margin-bottom: 8rem;
+}
+
+#left-container-input{
+    display: grid;
+    width: 32%;
+}
+
+#landing-input{
+    display: flex;
+    height: 2rem;
+    border-color: #848FC1;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 0.1rem;
+    padding-left: 0.7rem;
+    border-style: solid;
+}
+
+#landing-left-bottom{
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    width: 100%;
+    height: 2.5em;
+    border-radius: 1rem;
+    background-color: #848FC1;
+    font-size: 1rem;
+}
+
+#landing-left-bottom:hover{
+    background-color: rgb(106, 115, 153);
+}
+
+#right-container{
+    width: 50%;
+    background-image: url(/assets/coach-presentation.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: baseline;
+    justify-items: baseline;
+    padding-top: 20rem;
+    padding-right: 19rem;
+    padding-left: 2rem;
+}
+
+#right-container h1{
+    color: white;
+    display: flex;
+    align-items: baseline;
+}

@@ -1164,18 +1164,24 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-container"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "landing-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-box"
+        id: "left-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Joining as a participant?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "left-container-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Enter event code",
+        id: "landing-input",
         value: this.state.email,
         onChange: this.update('eventCode')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "landing-left-bottom",
         onClick: this.handleCode
-      }, "Join")));
+      }, "Join an existing event"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "right-container"
+      }));
     }
   }]);
 

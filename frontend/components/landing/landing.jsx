@@ -39,17 +39,24 @@ class LandingPage extends React.Component {
 
     render(){
         return (
-            <div>
-                <div className='input-container'>
-                    <div className='input-box'>
+            <div className='landing-container'>
+                <div id='left-container'>
+                    <h3>
+                        Joining as a participant?
+                    </h3>
+                    <div id='left-container-input'>
                         <input 
                             type="text" 
                             placeholder='Enter event code'
+                            id='landing-input'
                             value={this.state.email}
                             onChange={this.update('eventCode')}
                         />
+                        <button id='landing-left-bottom' onClick={this.handleCode}>Join an existing event</button>
                     </div>
-                    <button onClick={this.handleCode}>Join</button>
+                </div>
+                <div id='right-container'>
+        
                 </div>
             </div>
         )
