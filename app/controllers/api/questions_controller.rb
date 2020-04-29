@@ -6,9 +6,6 @@ class Api::QuestionsController < ApplicationController
 
     def show
         @question = Question.find_by(params[:id])
-        # user = User.find_by(db_question.user_id)
-        # @question = db_question
-        # @question[:username] = user.name
     end
 
     def create
@@ -29,8 +26,8 @@ class Api::QuestionsController < ApplicationController
 
 
     def update
-        @question = Question.find_by(params[:id])
-        if @question && question.update_attributes(question_params)
+        @question = Question.find(params[:id])
+        if @question && @question.update_attributes(question_params)
             render :show
         elsif !@question
             render json: ['Could not locate question'], status: 400

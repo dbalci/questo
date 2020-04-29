@@ -633,7 +633,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _navbar_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/navbar */ "./frontend/components/navbar/navbar.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -651,7 +650,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -741,10 +739,7 @@ var EventIndex = /*#__PURE__*/function (_React$Component2) {
       var _this$props2 = this.props,
           events = _this$props2.events,
           deleteEvent = _this$props2.deleteEvent,
-          createEvent = _this$props2.createEvent,
-          openModal = _this$props2.openModal,
-          user = _this$props2.user,
-          logout = _this$props2.logout;
+          openModal = _this$props2.openModal;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "events"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -850,9 +845,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -865,12 +860,25 @@ var Question = /*#__PURE__*/function (_React$Component) {
   _inherits(Question, _React$Component);
 
   function Question(props) {
+    var _this;
+
     _classCallCheck(this, Question);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Question).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Question).call(this, props));
+    _this.state = {
+      answered: false
+    };
+    _this.answerQuestion = _this.answerQuestion.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Question, [{
+    key: "answerQuestion",
+    value: function answerQuestion() {
+      this.props.question.answered = true;
+      this.props.updateQuestion(this.props.question);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -891,7 +899,12 @@ var Question = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "answer this question")));
+      }), question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-check-circle"
+      }, " Answered") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-circle",
+        onClick: this.answerQuestion
+      }, " Mark answered")));
     }
   }]);
 
@@ -902,23 +915,23 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
   _inherits(EventShow, _React$Component2);
 
   function EventShow(props) {
-    var _this;
+    var _this2;
 
     _classCallCheck(this, EventShow);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventShow).call(this, props));
-    _this.handleCreateQuestion = _this.handleCreateQuestion.bind(_assertThisInitialized(_this));
-    _this.state = {
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(EventShow).call(this, props));
+    _this2.handleCreateQuestion = _this2.handleCreateQuestion.bind(_assertThisInitialized(_this2));
+    _this2.state = {
       body: '',
       answered: false,
       event_id: props.event_id
     };
 
     if (props.user) {
-      _this.state.user_id = props.user.id;
+      _this2.state.user_id = props.user.id;
     }
 
-    return _this;
+    return _this2;
   }
 
   _createClass(EventShow, [{
@@ -930,12 +943,12 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "handleCreateQuestion",
     value: function handleCreateQuestion(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       e.preventDefault();
       var question = Object.assign({}, this.state);
       this.props.createQuestion(question).then(function () {
-        _this2.setState({
+        _this3.setState({
           'body': ''
         });
       });
@@ -943,10 +956,10 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "update",
     value: function update(field) {
-      var _this3 = this;
+      var _this4 = this;
 
       return function (e) {
-        return _this3.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this4.setState(_defineProperty({}, field, e.currentTarget.value));
       };
     }
   }, {
@@ -954,9 +967,10 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     value: function render() {
       var _this$props2 = this.props,
           user = _this$props2.user,
-          createQuestion = _this$props2.createQuestion,
           deleteQuestion = _this$props2.deleteQuestion,
-          event = _this$props2.event;
+          event = _this$props2.event,
+          updateQuestion = _this$props2.updateQuestion,
+          event_id = _this$props2.event_id;
 
       if (!event) {
         return "";
@@ -973,7 +987,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         className: "event-show-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "event-title"
-      }, "Event: ", event.code, " ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, " #", event.code, " :  ", event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "ask-question-title"
       }, "Ask the speaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "create-question"
@@ -1001,7 +1015,9 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
           key: question.id,
           question: question,
           user: user,
-          deleteQuestion: deleteQuestion
+          deleteQuestion: deleteQuestion,
+          updateQuestion: updateQuestion,
+          event_id: event_id
         });
       })));
     }
@@ -1055,6 +1071,9 @@ var mstp = function mstp(state, ownProps) {
 
 var mdtp = function mdtp(dispatch) {
   return {
+    updateQuestion: function updateQuestion(question) {
+      return dispatch(Object(_actions_question_action__WEBPACK_IMPORTED_MODULE_1__["updateQuestion"])(question));
+    },
     fetchUserEvents: function fetchUserEvents(userId) {
       return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUserEvents"])(userId));
     },
@@ -1146,7 +1165,7 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value.toUpperCase()));
       };
     }
   }, {

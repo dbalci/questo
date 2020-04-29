@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../navbar/navbar';
 
 class EventIndexItem extends React.Component {
     constructor(props) {
@@ -62,7 +61,7 @@ class EventIndex extends React.Component {
     };
 
     render() {
-        let { events, deleteEvent, createEvent, openModal, user, logout } = this.props
+        let { events, deleteEvent, openModal } = this.props
         return (
             <div className='events'>
                 <div className='events-title'>

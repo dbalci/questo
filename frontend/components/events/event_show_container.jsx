@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchQuestionsForEvent, deleteQuestion, createQuestion } from '../../actions/question_action';
+import { fetchQuestionsForEvent, deleteQuestion, createQuestion, updateQuestion } from '../../actions/question_action';
 import { fetchUserEvents } from '../../actions/event_actions';
 import EventShow from './event_show';
 import { logout } from '../../actions/session_actions';
@@ -26,6 +26,7 @@ const mstp = (state, ownProps) => {
 
 const mdtp = (dispatch) => {
     return {
+        updateQuestion: (question) => dispatch(updateQuestion(question)),
         fetchUserEvents: (userId) => dispatch(fetchUserEvents(userId)),
         fetchQuestionsForEvent: (eventId) => dispatch(fetchQuestionsForEvent(eventId)),
         createQuestion: (question) => dispatch(createQuestion(question)),

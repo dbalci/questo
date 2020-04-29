@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 
 class Question extends React.Component{
     constructor(props){
-        super(props) 
+        super(props);
+        this.state = {
+            answered: false,
+        }
+        this.answerQuestion = this.answerQuestion.bind(this);
+    }
+
+    answerQuestion(){
+        this.props.question.answered = true
+        this.props.updateQuestion(this.props.question)
     }
 
     render() {
@@ -24,8 +33,11 @@ class Question extends React.Component{
                     {question.body}
                     </div>
                     <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
-                    
-                    <button>answer this question</button>
+                    {
+                        (question.answered)
+                            ? <i className="far fa-check-circle"> Answered</i>
+                            : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
+                    }                    
                 </div>
             </div>
         )
@@ -68,7 +80,7 @@ class EventShow extends React.Component {
     }
 
     render(){
-        let { user, createQuestion, deleteQuestion, event } = this.props
+        let { user, deleteQuestion, event, updateQuestion, event_id } = this.props
         if (!event) {
             return ""
         }
@@ -80,7 +92,7 @@ class EventShow extends React.Component {
         let handleCreateQuestion = this.handleCreateQuestion;
         return (
             <div className='event-show-container'> 
-                <p id='event-title'>Event: {event.code} {event.title}</p>
+                <p id='event-title'> #{event.code} :  {event.title}</p>
                 <p id='ask-question-title'>Ask the speaker</p>
                 <div id='create-question'>
                     <textarea 
@@ -105,6 +117,8 @@ class EventShow extends React.Component {
                                                         question={question} 
                                                         user={user} 
                                                         deleteQuestion={deleteQuestion}
+                                                        updateQuestion={updateQuestion}
+                                                        event_id={event_id}
                                                     />)
                     }
                 </div>
