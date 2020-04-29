@@ -25,7 +25,8 @@ class Question extends React.Component{
                         {question.user.name}
                     </div>
                     <div className='qu-created-at'>
-                        {question.created_at}
+                        {moment(`${question.created_at}`).format('MMM D, h:mm a')}
+
                     </div>
                 </div>
                 <div>

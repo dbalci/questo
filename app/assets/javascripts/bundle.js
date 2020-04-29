@@ -892,7 +892,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
         className: "qu-username"
       }, question.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-created-at"
-      }, question.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, moment("".concat(question.created_at)).format('MMM D, h:mm a'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
       }, question.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-trash-alt",
