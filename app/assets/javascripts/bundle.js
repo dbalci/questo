@@ -633,6 +633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util_event_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/event_api_util */ "./frontend/util/event_api_util.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -650,6 +651,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -791,8 +793,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mstp = function mstp(state) {
+  var myEvents = [];
+  var notMyEvents = [];
+  Object.values(state.events).forEach(function (e) {
+    if (e.user_id === state.session.id) {
+      myEvents.push(e);
+    }
+  });
   return {
-    events: Object.values(state.events),
+    events: myEvents,
     user: state.session
   };
 };
@@ -813,7 +822,20 @@ var mdtp = function mdtp(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
-    }
+    },
+    findEventByCode: function (_findEventByCode) {
+      function findEventByCode(_x) {
+        return _findEventByCode.apply(this, arguments);
+      }
+
+      findEventByCode.toString = function () {
+        return _findEventByCode.toString();
+      };
+
+      return findEventByCode;
+    }(function (code) {
+      return dispatch(findEventByCode(code));
+    })
   };
 };
 
@@ -1130,8 +1152,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var mstp = function mstp(_ref) {
-  var errors = _ref.errors;
+var mstp = function mstp(state) {
   return {};
 };
 
@@ -1139,6 +1160,9 @@ var mdtp = function mdtp(dispatch) {
   return {
     findEventByCode: function findEventByCode(code) {
       return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["findEventByCode"])(code));
+    },
+    fetchEvent: function fetchEvent(eventId) {
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["fetchEvent"])(eventId));
     }
   };
 };
@@ -1884,7 +1908,10 @@ var EventReducer = function EventReducer() {
 
   switch (action.type) {
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENTS"]:
-      return action.events.events;
+      Object.values(action.events.events).forEach(function (e) {
+        newState[e.id] = e;
+      });
+      return newState;
 
     case _actions_event_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_EVENT"]:
       newState[action.event.event.id] = action.event.event;

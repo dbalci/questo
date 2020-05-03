@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { findEventByCode } from '../../actions/event_actions'
+import { findEventByCode, fetchEvent } from '../../actions/event_actions'
 
-const mstp = ({ errors }) => {
+const mstp = (state) => {
     return {
-        
+
     };
 };
 
 const mdtp = dispatch => {
     return {
-        findEventByCode: (code) => dispatch(findEventByCode(code))
+        findEventByCode: (code) => dispatch(findEventByCode(code)),
+        fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
     };
 };
 
@@ -18,7 +19,7 @@ class LandingPage extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            eventCode: ''
+            eventCode: '',
         }
         this.handleCode = this.handleCode.bind(this)
     }

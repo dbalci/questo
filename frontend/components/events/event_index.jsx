@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { findEventByCode } from '../../util/event_api_util';
 
 class EventIndexItem extends React.Component {
     constructor(props) {

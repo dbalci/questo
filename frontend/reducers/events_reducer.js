@@ -10,7 +10,11 @@ const EventReducer = (oldState = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_EVENTS:
-            return action.events.events;
+            Object.values(action.events.events).forEach((e)=>{
+                newState[e.id] = e
+            })
+            return newState;
+
         case RECEIVE_EVENT:
             newState[action.event.event.id] = action.event.event
             return newState
