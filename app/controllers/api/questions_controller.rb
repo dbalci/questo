@@ -27,9 +27,16 @@ class Api::QuestionsController < ApplicationController
 
     def update
         @question = Question.find(params[:id])
-        if @question && @question.update_attributes(question_params)
+        if @question
             #adding authorization violations: check if user is event owner 
-            render :show
+            @user = current_user()
+            @event = Event.find_by(id: @question.event_id)
+            if @user.id == @event.user_id 
+                @question.update_attributes(question_params)
+                render :show
+            else
+                render json: ['Not authorized to answer this question'], status: 403
+            end
         elsif !@question
             render json: ['Could not locate question'], status: 400
         else
