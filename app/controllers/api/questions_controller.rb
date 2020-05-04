@@ -28,6 +28,7 @@ class Api::QuestionsController < ApplicationController
     def update
         @question = Question.find(params[:id])
         if @question && @question.update_attributes(question_params)
+            #adding authorization violations: check if user is event owner 
             render :show
         elsif !@question
             render json: ['Could not locate question'], status: 400
