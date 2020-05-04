@@ -921,8 +921,14 @@ var Question = /*#__PURE__*/function (_React$Component) {
         className: "qu-created-at"
       }, moment("".concat(question.created_at)).format('MMM D, h:mm a'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
-      }, question.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, question.body), this.props.user.id === this.props.event.user_id || this.props.user_id === this.props.question.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-trash-alt",
+        onClick: function onClick() {
+          return deleteQuestion(question.id);
+        }
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-trash-alt",
+        id: "not-avaliable",
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }

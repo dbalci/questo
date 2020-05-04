@@ -38,7 +38,12 @@ class Question extends React.Component{
                     <div className='qu-body'>
                     {question.body}
                     </div>
-                    <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                    {
+                        (this.props.user.id === this.props.event.user_id) || (this.props.user_id === this.props.question.user_id)
+                            ? <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                            : <i className="far fa-trash-alt" id='not-avaliable' onClick={() => deleteQuestion(question.id)}></i>
+
+                    }
 
                     {
                         (this.props.user.id === this.props.event.user_id)

@@ -19,9 +19,13 @@ class Api::QuestionsController < ApplicationController
 
     def destroy
         @question = Question.find(params[:id])
-        @question.destroy
-        render :show
-        
+        @user = current_user()
+        if @user.id == @question.user_id || @user.id == @event.user_id 
+            @question.destroy
+            render :show
+        else
+            render json: ['Not authorized to delete this question'], status: 403
+        end
     end
 
 

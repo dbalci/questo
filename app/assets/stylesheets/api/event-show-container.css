@@ -82,5 +82,6 @@
     flex: 1;
 }
 
-
-
+#not-avaliable{
+    color: gray;
+}
