@@ -15,8 +15,13 @@ class Question extends React.Component{
         this.props.updateQuestion(this.props.question)
     }
 
+    eventOwner(){
+
+    }
+
     render() {
-        let { question, deleteQuestion } = this.props;
+        let { question, deleteQuestion, event } = this.props;
+        console.log('props in event show in question', this.props)
 
         return (
             <div className='each-question'>
@@ -34,10 +39,16 @@ class Question extends React.Component{
                     {question.body}
                     </div>
                     <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+
                     {
-                        (question.answered)
-                            ? <i className="far fa-check-circle"> Answered</i>
-                            : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
+                        (this.props.user.id === this.props.event.user_id)
+
+                            ? (question.answered)
+                                    ? <i className="far fa-check-circle"> Answered</i>
+                                    : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
+                            : (question.answered)
+                                ? <i className="far fa-check-circle"> Answered</i>
+                                : <i className="far fa-circle" onClick={this.answerQuestion} > Waiting for event owner to answer</i> 
                     }                    
                 </div>
             </div>
@@ -115,11 +126,12 @@ class EventShow extends React.Component {
                     {
                         questions.map(question => <Question 
                                                         key={question.id} 
+                                                        event={event}
                                                         question={question} 
                                                         user={user} 
+                                                        event_id={event_id}
                                                         deleteQuestion={deleteQuestion}
                                                         updateQuestion={updateQuestion}
-                                                        event_id={event_id}
                                                     />)
                     }
                 </div>

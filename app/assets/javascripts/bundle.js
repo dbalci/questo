@@ -901,11 +901,16 @@ var Question = /*#__PURE__*/function (_React$Component) {
       this.props.updateQuestion(this.props.question);
     }
   }, {
+    key: "eventOwner",
+    value: function eventOwner() {}
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
           question = _this$props.question,
-          deleteQuestion = _this$props.deleteQuestion;
+          deleteQuestion = _this$props.deleteQuestion,
+          event = _this$props.event;
+      console.log('props in event show in question', this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -921,12 +926,17 @@ var Question = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }
-      }), question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }), this.props.user.id === this.props.event.user_id ? question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-check-circle"
       }, " Answered") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-circle",
         onClick: this.answerQuestion
-      }, " Mark answered")));
+      }, " Mark answered") : question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-check-circle"
+      }, " Answered") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-circle",
+        onClick: this.answerQuestion
+      }, " Waiting for event owner to answer")));
     }
   }]);
 
@@ -1035,11 +1045,12 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
       }, questions.map(function (question) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Question, {
           key: question.id,
+          event: event,
           question: question,
           user: user,
+          event_id: event_id,
           deleteQuestion: deleteQuestion,
-          updateQuestion: updateQuestion,
-          event_id: event_id
+          updateQuestion: updateQuestion
         });
       })));
     }
