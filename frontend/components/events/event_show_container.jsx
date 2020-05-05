@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchQuestionsForEvent, deleteQuestion, createQuestion, updateQuestion } from '../../actions/question_action';
-import { fetchUserEvents } from '../../actions/event_actions';
+import { fetchUserEvents, fetchEvent } from '../../actions/event_actions';
 import EventShow from './event_show';
 import { logout } from '../../actions/session_actions';
 
@@ -31,6 +31,7 @@ const mdtp = (dispatch) => {
         fetchQuestionsForEvent: (eventId) => dispatch(fetchQuestionsForEvent(eventId)),
         createQuestion: (question) => dispatch(createQuestion(question)),
         deleteQuestion: (questionId) => dispatch(deleteQuestion(questionId)),
+        fetchEvent: (eventId) => dispatch(fetchEvent(eventId))
     }
 };
 

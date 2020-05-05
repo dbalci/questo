@@ -35,5 +35,19 @@
 }
 
 .qu-body{
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.ikons{
+    display: flex;
+    flex-direction: row;
+}
+
+.delete-ikon{
+    display: flex;
+}
+
+.fa-circle{
     margin-left: 1em;
 }

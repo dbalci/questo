@@ -20,6 +20,7 @@ class Api::QuestionsController < ApplicationController
     def destroy
         @question = Question.find(params[:id])
         @user = current_user()
+        @event = Event.find_by(id: @question.event_id)
         if @user.id == @question.user_id || @user.id == @event.user_id 
             @question.destroy
             render :show

@@ -901,9 +901,6 @@ var Question = /*#__PURE__*/function (_React$Component) {
       this.props.updateQuestion(this.props.question);
     }
   }, {
-    key: "eventOwner",
-    value: function eventOwner() {}
-  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -911,6 +908,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
           deleteQuestion = _this$props.deleteQuestion,
           event = _this$props.event;
       console.log('props in event show in question', this.props);
+      var showDelete = this.props.user.id === this.props.event.user_id || this.props.user.id === this.props.question.user_id;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -919,20 +917,22 @@ var Question = /*#__PURE__*/function (_React$Component) {
         className: "qu-username"
       }, question.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-created-at"
-      }, moment("".concat(question.created_at)).format('MMM D, h:mm a'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, moment("".concat(question.created_at)).format('MMM D, h:mm a'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-and-ikons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "qu-body"
-      }, question.body), this.props.user.id === this.props.event.user_id || this.props.user_id === this.props.question.user_id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, question.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ikons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "delete-ikon"
+      }, showDelete ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-trash-alt",
         onClick: function onClick() {
           return deleteQuestion(question.id);
         }
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-trash-alt",
-        id: "not-avaliable",
-        onClick: function onClick() {
-          return deleteQuestion(question.id);
-        }
-      }), this.props.user.id === this.props.event.user_id ? question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "circle-ikon"
+      }, this.props.user.id === this.props.event.user_id ? question.answered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-check-circle"
       }, " Answered") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-circle",
@@ -942,7 +942,7 @@ var Question = /*#__PURE__*/function (_React$Component) {
       }, " Answered") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-circle",
         onClick: this.answerQuestion
-      }, " Waiting for event owner to answer")));
+      }, " Waiting for event owner to answer")))));
     }
   }]);
 
@@ -977,6 +977,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     value: function componentDidMount() {
       this.props.fetchUserEvents();
       this.props.fetchQuestionsForEvent(this.props.event_id);
+      this.props.fetchEvent();
     }
   }, {
     key: "handleCreateQuestion",
@@ -1124,6 +1125,9 @@ var mdtp = function mdtp(dispatch) {
     },
     deleteQuestion: function deleteQuestion(questionId) {
       return dispatch(Object(_actions_question_action__WEBPACK_IMPORTED_MODULE_1__["deleteQuestion"])(questionId));
+    },
+    fetchEvent: function fetchEvent(eventId) {
+      return dispatch(Object(_actions_event_actions__WEBPACK_IMPORTED_MODULE_2__["fetchEvent"])(eventId));
     }
   };
 };
@@ -2161,7 +2165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], logger));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

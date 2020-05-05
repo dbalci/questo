@@ -15,13 +15,11 @@ class Question extends React.Component{
         this.props.updateQuestion(this.props.question)
     }
 
-    eventOwner(){
-
-    }
-
     render() {
         let { question, deleteQuestion, event } = this.props;
         console.log('props in event show in question', this.props)
+
+        let showDelete = (this.props.user.id === this.props.event.user_id) || (this.props.user.id === this.props.question.user_id)
 
         return (
             <div className='each-question'>
@@ -34,27 +32,30 @@ class Question extends React.Component{
 
                     </div>
                 </div>
-                <div>
+                <div className='body-and-ikons'>
                     <div className='qu-body'>
-                    {question.body}
+                        {question.body}
                     </div>
-                    {
-                        (this.props.user.id === this.props.event.user_id) || (this.props.user_id === this.props.question.user_id)
-                            ? <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
-                            : <i className="far fa-trash-alt" id='not-avaliable' onClick={() => deleteQuestion(question.id)}></i>
-
-                    }
-
-                    {
-                        (this.props.user.id === this.props.event.user_id)
-
-                            ? (question.answered)
-                                    ? <i className="far fa-check-circle"> Answered</i>
-                                    : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
-                            : (question.answered)
-                                ? <i className="far fa-check-circle"> Answered</i>
-                                : <i className="far fa-circle" onClick={this.answerQuestion} > Waiting for event owner to answer</i> 
-                    }                    
+                    <div className='ikons'>
+                        <div className='delete-ikon'>
+                            {
+                                (showDelete)
+                                    ? <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                                    : <span></span>
+                            }
+                        </div>
+                        <div className='circle-ikon'>
+                            {
+                                (this.props.user.id === this.props.event.user_id)
+                                    ? (question.answered)
+                                        ? <i className="far fa-check-circle"> Answered</i>
+                                        : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
+                                    : (question.answered)
+                                        ? <i className="far fa-check-circle"> Answered</i>
+                                        : <i className="far fa-circle" onClick={this.answerQuestion} > Waiting for event owner to answer</i> 
+                            }                    
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -80,6 +81,7 @@ class EventShow extends React.Component {
     componentDidMount(){
         this.props.fetchUserEvents();
         this.props.fetchQuestionsForEvent(this.props.event_id);
+        this.props.fetchEvent();
     }
 
     handleCreateQuestion(e){
