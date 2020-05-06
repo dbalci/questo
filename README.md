@@ -191,9 +191,50 @@ Start and end dates planned today and tomorrow and formatted with getToday and g
 
 Each question will show user informations such as name and question’s creating date and question itself. Side don’t have editing question functionality. Deleting and answerin only functions for questions. Deletion can be question and event owner but answering can be done only event owner. 
 
+For formatting each questions date moment library used.
+
+```
+{moment(`${question.created_at}`).format('MMM D, h:mm a')}
+```
+
+After question answered by event owner, by clicking circle, answered column will change false to true on db by answerQuestion function on event show component. If a question answered every user will see answered text with a tick in cirle icon.
+
+```
+answerQuestion(){
+    this.props.question.answered = true
+    this.props.updateQuestion(this.props.question)
+}
+```
+
 ![Before Answering](public/images/mark_answered.png)
 
 When event owner marks a question as answered it will shown as  ‘answered’.
 
 ![After Answering](public/images/answered.png)
+
+
+Delete icon and answerinf functionalyty not visible for every user. Delete icon is visible for event owner and question owner. Answer icon is only visible for event owner. For making this limitation if condition used in component return html function as:
+
+```
+<div className='ikons'>
+    <div className='delete-ikon'>
+        {
+            (showDelete)
+                ? <i className="far fa-trash-alt" onClick={() => deleteQuestion(question.id)}></i>
+                : <span></span>
+        }
+    </div>
+    <div className='circle-ikon'>
+        {
+            (this.props.user.id === this.props.event.user_id)
+                ? (question.answered)
+                    ? <i className="far fa-check-circle"> Answered</i>
+                    : <i className="far fa-circle" onClick={this.answerQuestion} > Mark answered</i>
+                : (question.answered)
+                    ? <i className="far fa-check-circle"> Answered</i>
+                    : <i className="far fa-circle" onClick={this.answerQuestion} > Waiting for event owner to answer</i> 
+        }                    
+    </div>
+</div>
+```
 
