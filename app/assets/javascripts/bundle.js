@@ -907,7 +907,6 @@ var Question = /*#__PURE__*/function (_React$Component) {
           question = _this$props.question,
           deleteQuestion = _this$props.deleteQuestion,
           event = _this$props.event;
-      console.log('props in event show in question', this.props);
       var showDelete = this.props.user.id === this.props.event.user_id || this.props.user.id === this.props.question.user_id;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "each-question"

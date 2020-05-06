@@ -17,7 +17,6 @@ class Question extends React.Component{
 
     render() {
         let { question, deleteQuestion, event } = this.props;
-        console.log('props in event show in question', this.props)
 
         let showDelete = (this.props.user.id === this.props.event.user_id) || (this.props.user.id === this.props.question.user_id)
 
