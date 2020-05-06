@@ -36,9 +36,16 @@ Used Heroku for depyoyment.
 
 Login modal:
 
-![Login](public/images/login_modal.png)
+<!-- ![Login](public/images/login_modal.png) -->
+
+![signup gif](public/images/signup-success.gif)
+![login gif](public/images/login-success.gif)
 
 On login form made a demo user first and give th einformation for demo user in a function. On handleDemo function wmpty fields complated with given information. If it's not demo login empty fields going to use update function to update fields with input information. 
+
+Error messages:
+
+![signup errors](public/images/signup-error.gif)
 
 ```  
 constructor(props) {
