@@ -136,7 +136,56 @@ Event start and end date can be modifiyed.
 
 ![Createing a event](public/images/event_list.png)
 
+
 After creating event, questo automaticly directing user to the event show page. Questions will appear this page. Adding questions and deleting questions also in event show page. If current user is event owner or question owner, can see and use delete questions. Also only event owner can mark answered the question.
+
+
+```
+constructor(props){
+    super(props);
+    this.state = {
+        title: '',
+        start_date: this.getToday(),
+        end_date: this.getTomorrow(),
+        code: this.getRandomCode(),
+        is_ended: false,
+        user_id: props.userId
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
+
+//creating random code for each event
+
+getRandomCode(){
+    const alp = 'ABCDEFGHIJKLMNOPRSTUVYZXWQ0123456789'
+    let code = ''
+    for(let i = 0; i < 5; i++){
+        let randIdx = Math.floor(Math.random() * alp.length);
+        code += alp[randIdx];
+    }      
+    return code
+}
+
+// formating date for today
+
+getToday(){
+    let today = new Date();
+    return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+}
+
+//formating date for tomorrow
+
+getTomorrow(){
+    const today = new Date()
+    const tomorrow = new Date(today)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    return tomorrow.getFullYear() + '-' + ('0' + (tomorrow.getMonth() + 1)).slice(-2) + '-' + ('0' + tomorrow.getDate()).slice(-2);
+}
+
+```
+For creating event used form as html component. For updating each field update field function used. 
+Each event has code column in db events table. For creating code used getRandomCode function in react component. 
+Start and end dates planned today and tomorrow and formatted with getToday and getTomorrow functions.
 
 ![Adding questions](public/images/event_show_page.png)
 
