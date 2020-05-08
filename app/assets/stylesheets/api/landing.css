@@ -48,8 +48,7 @@
 
 #right-container{
     width: 50%;
-    /* background-image: url("/assets/conference.jpg"); */
-    background-image: url("/assets/h3.png");
+    background-image: url("/assets/conference.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     align-items: baseline;
