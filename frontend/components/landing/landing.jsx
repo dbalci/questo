@@ -57,7 +57,7 @@ class LandingPage extends React.Component {
                     </div>
                 </div>
                 <div id='right-container'>
-        
+                    <img src={window.conference} alt="landing photo" className='landing-photo'/>
                 </div>
             </div>
         )

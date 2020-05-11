@@ -1244,7 +1244,11 @@ var LandingPage = /*#__PURE__*/function (_React$Component) {
         onClick: this.handleCode
       }, "Join an existing event"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "right-container"
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.conference,
+        alt: "landing photo",
+        className: "landing-photo"
+      })));
     }
   }]);
 

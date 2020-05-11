@@ -47,19 +47,16 @@
 }
 
 #right-container{
-    width: 50%;
-    background-image: url("/assets/conference.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: baseline;
-    justify-items: baseline;
-    padding-top: 20rem;
-    padding-right: 19rem;
-    padding-left: 2rem;
+    width: 87%;
 }
 
 #right-container h1{
     color: white;
     display: flex;
     align-items: baseline;
+}
+
+.landing-photo{
+    height: 100%;
+    width: 100%;
 }
