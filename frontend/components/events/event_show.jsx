@@ -88,7 +88,7 @@ class EventShow extends React.Component {
         let question = Object.assign({}, this.state);
         this.props.createQuestion(question).then(() => {
             this.setState({'body' :''});
-        })
+        }).then(window.location.reload())
     }
     
     update(field){

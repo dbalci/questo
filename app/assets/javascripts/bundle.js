@@ -989,7 +989,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
         _this3.setState({
           'body': ''
         });
-      });
+      }).then(window.location.reload());
     }
   }, {
     key: "update",
