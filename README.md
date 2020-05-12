@@ -4,7 +4,12 @@
 
 Check [questodb.herokuapp.com](https://questodb.herokuapp.com/#/) for live version.
 
+Creating an event:
+
 ![Demo gif](public/images/event_creation.gif) 
+
+
+Using code for going an event:
 
 ![Demo gif](public/images/code_using.gif)
 
@@ -31,8 +36,6 @@ will be using a Node server that utilizes the Express framework for routing and 
 #### Splash Page
 
 Login modal:
-
-<!-- ![Login](public/images/login_modal.png) -->
 
 ![signup gif](public/images/signup-success.gif)
 ![login gif](public/images/login-success.gif)
