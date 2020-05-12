@@ -976,7 +976,7 @@ var EventShow = /*#__PURE__*/function (_React$Component2) {
     value: function componentDidMount() {
       this.props.fetchUserEvents();
       this.props.fetchQuestionsForEvent(this.props.event_id);
-      this.props.fetchEvent();
+      this.props.fetchEvent(this.props.event_id);
     }
   }, {
     key: "handleCreateQuestion",

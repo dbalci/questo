@@ -80,7 +80,7 @@ class EventShow extends React.Component {
     componentDidMount(){
         this.props.fetchUserEvents();
         this.props.fetchQuestionsForEvent(this.props.event_id);
-        this.props.fetchEvent();
+        this.props.fetchEvent(this.props.event_id);
     }
 
     handleCreateQuestion(e){
