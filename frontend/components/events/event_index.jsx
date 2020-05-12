@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { findEventByCode } from '../../util/event_api_util';
+import moment from 'moment';
 
 class EventIndexItem extends React.Component {
     constructor(props) {
@@ -8,27 +9,11 @@ class EventIndexItem extends React.Component {
     }
 
     getPrettyDate(event){
-    
-        let monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-        let ms_start = Date.parse(event.start_date);
-        let date_start = new Date(ms_start);
-        let start_pretty = date_start.toLocaleDateString();
-       
-        let ms_end = Date.parse(event.end_date);
-        let date_end = new Date(ms_end);
-        let end_pretty = date_end.toLocaleDateString();
 
-        let pretty_date = ''
+        let start_date = moment(`${event.start_date}`).format('D') 
+        let end_date = moment(`${event.end_date}`).format('D MMM YY')
     
-        let day = start_pretty.split('/')[1];
-        if (day > 10) {
-            pretty_date = start_pretty.slice(2,4) + ' - ' + end_pretty.slice(2,4) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
-        }else{
-            pretty_date = start_pretty.slice(2,3) + ' - ' + end_pretty.slice(2,3) + ' ' + monthNames[date_end.getMonth()] + ' ' + date_end.getFullYear();
-        }    
-        return pretty_date
+        return `${start_date} - ${end_date}`
     }
 
     render() {
@@ -73,7 +58,7 @@ class EventIndex extends React.Component {
                 </div>
                 <div className='list-items'>
                     {
-                        events.map(event => <EventIndexItem key={event.id} event={event} deleteEvent={deleteEvent} />)
+                        events.map(event => <EventIndexItem key={event.id} event={event} deleteEvent={deleteEvent}  created_at={event.created_at}/>)
                     }
                 </div>
                
