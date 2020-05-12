@@ -48,6 +48,6 @@
     display: flex;
 }
 
-.fa-circle{
+.fa-circle, .fa-check-circle{
     margin-left: 1em;
 }
