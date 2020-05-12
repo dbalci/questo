@@ -2,9 +2,11 @@
 
 ## sli.do clone for fullstack project
 
-Check [liveside](https://questodb.herokuapp.com/#/) for live version.
+Check [questodb.herokuapp.com](https://questodb.herokuapp.com/#/) for live version.
 
-![Demo gif]()
+![Demo gif](public/images/event_creation.gif) 
+
+![Demo gif](public/images/code_using.gif)
 
 Check [wiki](https://github.com/dbalci/questo/wiki) for design documents.
 
@@ -24,13 +26,7 @@ will be using a Node server that utilizes the Express framework for routing and 
 
 ### **Frontend:** React, Redux
 
-For the frontend,  React and Redux used frameworks. 
-
 ### **Deployment:**  Heroku
-
-Used Heroku for depyoyment.
-
-
 
 #### Splash Page
 
@@ -175,24 +171,17 @@ getRandomCode(){
 
 // formating date for today
 
-getToday(){
-    let today = new Date();
-    return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+getPrettyDate(event){
+
+    let start_date = moment(`${event.start_date}`).format('D') 
+    let end_date = moment(`${event.end_date}`).format('D MMM YY')
+
+    return `${start_date} - ${end_date}`
 }
-
-//formating date for tomorrow
-
-getTomorrow(){
-    const today = new Date()
-    const tomorrow = new Date(today)
-    tomorrow.setDate(tomorrow.getDate() + 1)
-    return tomorrow.getFullYear() + '-' + ('0' + (tomorrow.getMonth() + 1)).slice(-2) + '-' + ('0' + tomorrow.getDate()).slice(-2);
-}
-
 ```
 For creating event used form as html component. For updating each field update field function used. 
 Each event has code column in db events table. For creating code used getRandomCode function in react component. 
-Start and end dates planned today and tomorrow and formatted with getToday and getTomorrow functions.
+Start and end dates for event planned as today and tomorrow and formatted moment javascript library.
 
 ![Adding questions](public/images/event_show_page.png)
 
