@@ -6,7 +6,7 @@
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
-    "minimist": ">=1.2.3",
+    "minimist": ">=1.2.6",
     "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-datepicker": "^2.14.0",
